@@ -4,7 +4,7 @@ import { HomepageComponent } from './homepage.component';
 
 @NgModule({
     imports: [RouterModule.forChild([
-        { path: 'homepage', component: HomepageComponent }
+        { path: '', component: HomepageComponent }
     ])],
     exports: [RouterModule]
 })
