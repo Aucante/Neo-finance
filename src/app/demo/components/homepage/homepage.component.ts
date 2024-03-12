@@ -1,13 +1,13 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
-import { MenuItem } from "primeng/api";
+import { Asset } from "../../api/asset";
 
 @Component({
     templateUrl: './homepage.component.html'
 })
 export class HomepageComponent implements OnInit, OnDestroy{
 
-    items!: MenuItem[];
+    assets!: Asset[];
 
     chartData: any;
 
@@ -17,9 +17,10 @@ export class HomepageComponent implements OnInit, OnDestroy{
     ngOnInit() {
         this.initChart();
 
-        this.items = [
-            { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-            { label: 'Remove', icon: 'pi pi-fw pi-minus' }
+        this.assets = [
+            { id: 1, name: 'Bitcoin', abbreviation: 'BTC', color: 'cyan' },
+            { id: 2, name: 'Ethereum', abbreviation: 'ETH', color: 'orange' },
+            { id: 3, name: 'Ripple', abbreviation: 'XRP', color: 'cyan' },
         ];
     }
 
