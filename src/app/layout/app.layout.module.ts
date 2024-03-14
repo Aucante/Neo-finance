@@ -17,6 +17,8 @@ import { AppFooterComponent } from './app.footer.component';
 import { AppConfigModule } from './config/config.module';
 import { AppSidebarComponent } from "./app.sidebar.component";
 import { AppLayoutComponent } from "./app.layout.component";
+import { ScrollPanelModule } from "primeng/scrollpanel";
+import { ScrollTopModule } from "primeng/scrolltop";
 
 @NgModule({
     declarations: [
@@ -39,7 +41,9 @@ import { AppLayoutComponent } from "./app.layout.component";
         InputSwitchModule,
         RippleModule,
         RouterModule,
-        AppConfigModule
+        AppConfigModule,
+        ScrollPanelModule,
+        ScrollTopModule
     ],
     exports: [AppLayoutComponent]
 })
