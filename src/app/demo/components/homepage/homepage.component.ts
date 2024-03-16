@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from "rxjs";
+import { debounceTime, Subscription } from "rxjs";
 import { Asset } from "../../api/asset";
+import { AssetService } from "../../service/asset.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -14,14 +15,14 @@ export class HomepageComponent implements OnInit, OnDestroy{
     chartOptions: any;
 
     subscription!: Subscription;
+
+    constructor(private assetService: AssetService) {
+    }
+
     ngOnInit() {
         this.initChart();
 
-        this.assets = [
-            { id: 1, name: 'Bitcoin', abbreviation: 'BTC', color: 'cyan' },
-            { id: 2, name: 'Ethereum', abbreviation: 'ETH', color: 'orange' },
-            { id: 3, name: 'Ripple', abbreviation: 'XRP', color: 'cyan' },
-        ];
+        this.assets = this.assetService.getAssets();
     }
 
     initChart() {

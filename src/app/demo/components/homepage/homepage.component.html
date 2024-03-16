@@ -20,7 +20,7 @@
                         <div class="surface-300 border-round overflow-hidden w-10rem lg:w-6rem" [ngStyle]="{height: '8px'}">
                             <div [ngStyle]="{ 'background-color': asset.color }" class="h-full"></div>
                         </div>
-                        <span [ngClass]="asset.color" class="ml-3 font-medium">50</span>
+                        <span [ngClass]="asset.color" class="ml-3 font-medium">{{ asset.lastValue }} $</span>
                     </div>
                 </li>
             </ul>
