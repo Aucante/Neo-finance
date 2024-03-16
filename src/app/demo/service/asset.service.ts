@@ -12,11 +12,6 @@ export class AssetService {
                 abbreviation: 'BTC',
                 color: 'cyan',
                 lastValue: 68000,
-                portfolio: {
-                    id: 1,
-                    name: 'portfolio 1',
-                    type: 'Cryptocurrency'
-                }
             },
             {
                 id: 2,
@@ -24,11 +19,6 @@ export class AssetService {
                 abbreviation: 'ETH',
                 color: 'orange',
                 lastValue: 3500,
-                portfolio: {
-                    id: 1,
-                    name: 'portfolio 1',
-                    type: 'Cryptocurrency'
-                }
             },
             {
                 id: 3,
@@ -36,11 +26,6 @@ export class AssetService {
                 abbreviation: 'XRP',
                 color: 'cyan',
                 lastValue: 0.6,
-                portfolio: {
-                    id: 1,
-                    name: 'portfolio 1',
-                    type: 'Cryptocurrency'
-                }
             },
             {
                 id: 4,
@@ -48,11 +33,6 @@ export class AssetService {
                 abbreviation: 'ADA',
                 color: 'orange',
                 lastValue: 0.7,
-                portfolio: {
-                    id: 1,
-                    name: 'portfolio 1',
-                    type: 'Cryptocurrency'
-                }
             },
         ];
     }

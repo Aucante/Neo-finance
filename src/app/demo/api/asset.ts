@@ -6,5 +6,4 @@ export interface Asset {
     abbreviation: string;
     color: string;
     lastValue: number;
-    portfolio: Portfolio
 }
