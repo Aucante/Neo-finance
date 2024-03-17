@@ -5,5 +5,6 @@ export interface Portfolio {
     name: string;
     type: string;
     value: number;
+    lastUpdateDate: Date;
     user: User;
 }

@@ -21,6 +21,7 @@ export interface Portfolio {
     type: string;
     value: number;
     portfolioLines: PortfolioLine[];
+    lastUpdateDate: Date;
 }
 
 @Injectable()
@@ -33,6 +34,7 @@ export class PortfolioService {
                 "name": "Cryptocurrencies Portfolio 1",
                 "type": "Cryptocurrencies",
                 "value": 5000,
+                "lastUpdateDate": new Date(),
                 "portfolioLines": [
                     {
                         "id": 1,
@@ -89,6 +91,7 @@ export class PortfolioService {
                 "name": "Stocks Portfolio 1",
                 "type": "Stocks",
                 "value": 10000,
+                "lastUpdateDate": new Date(),
                 "portfolioLines": [
                     {
                         "id": 3,
@@ -121,6 +124,7 @@ export class PortfolioService {
                 "name": "Real Estate Portfolio 1",
                 "type": "Real Estate",
                 "value": 100000,
+                "lastUpdateDate": new Date(),
                 "portfolioLines": [
                     {
                         "id": 5,
