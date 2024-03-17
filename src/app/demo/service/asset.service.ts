@@ -34,6 +34,20 @@ export class AssetService {
                 color: 'orange',
                 lastValue: 0.7,
             },
+            {
+                id: 5,
+                name: 'Litecoin',
+                abbreviation: 'LTC',
+                color: 'cyan',
+                lastValue: 120,
+            },
+            {
+                id: 6,
+                name: 'Solana',
+                abbreviation: 'SOL',
+                color: 'orange',
+                lastValue: 180,
+            },
         ];
     }
 }

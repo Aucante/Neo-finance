@@ -30,7 +30,7 @@ export class PortfolioService {
         return [
             {
                 "id": 1,
-                "name": "Cryptocurrencies",
+                "name": "Cryptocurrencies Portfolio 1",
                 "type": "Cryptocurrencies",
                 "value": 5000,
                 "portfolioLines": [
@@ -86,7 +86,7 @@ export class PortfolioService {
             },
             {
                 "id": 2,
-                "name": "Stocks",
+                "name": "Stocks Portfolio 1",
                 "type": "Stocks",
                 "value": 10000,
                 "portfolioLines": [
@@ -118,7 +118,7 @@ export class PortfolioService {
             },
             {
                 "id": 2,
-                "name": "Real Estate",
+                "name": "Real Estate Portfolio 1",
                 "type": "Real Estate",
                 "value": 100000,
                 "portfolioLines": [

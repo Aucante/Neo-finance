@@ -29,9 +29,6 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
         this.assets = this.assetService.getAssets();
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-        this.paginator = 3;
-        console.log(this.assets)
-        console.log(this.portfolios)
     }
 
     initChart() {
