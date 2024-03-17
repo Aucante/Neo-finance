@@ -1,7 +1,7 @@
 <div class="grid">
     <div class="col-12 xl:col-8">
         <div class="card">
-            <h5>FINANCIAL CHART</h5>
+            <h5>FINANCIAL CHART - {{ portfolios | totalValue | currency:'USD' }}</h5>
             <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
         </div>
     </div>
@@ -31,10 +31,9 @@
             <div class="flex justify-content-between align-items-center">
                 <h6>{{ portfolio.name | uppercase }}</h6>
             </div>
-            <div class="flex justify-content-between align-items-center mb-5">
-                <small class="text-400">{{ portfolio.type }}</small>
+            <div class="flex justify-content-between align-items-center mb-3">
+                <small class="text-400">{{ portfolio.type }} - <b>{{ portfolio.value | currency:'USD' }}</b></small>
             </div>
-
             <p-table [value]="portfolio.portfolioLines" [paginator]="true" [rows]="2" responsiveLayout="scroll">
                 <ng-template pTemplate="header">
                     <tr>
