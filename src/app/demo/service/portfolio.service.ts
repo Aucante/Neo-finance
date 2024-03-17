@@ -43,7 +43,7 @@ export class PortfolioService {
                             "name": "Bitcoin",
                             "abbreviation": "BTC",
                             "color": "cyan",
-                            "lastValue": 68000
+                            "lastValue": 68000,
                         }
                     },
                     {

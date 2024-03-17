@@ -39,7 +39,9 @@
                 </ng-template>
                 <ng-template pTemplate="body"  let-portfolioLine let-i="index">
                     <tr>
-                        <td style="width: 35%; min-width: 7rem;">{{portfolioLine.asset.abbreviation}}</td>
+                        <td style="width: 15%; min-width: 5rem;">
+                            <img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" class="shadow-4" alt="{{portfolioLine.asset.abbreviation}}" height="25" width="25">
+                        </td>
                         <td style="width: 35%; min-width: 8rem;">{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
                     </tr>
                     <tr *ngIf="portfolio.portfolioLines.length < 2 && i !== 2">
