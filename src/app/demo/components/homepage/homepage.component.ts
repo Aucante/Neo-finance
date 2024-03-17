@@ -39,10 +39,10 @@ export class HomepageComponent implements OnInit, OnDestroy{
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
         this.chartData = {
-            labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             datasets: [
                 {
-                    label: 'BTC',
+                    label: '',
                     data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40],
                     fill: false,
                     backgroundColor: documentStyle.getPropertyValue('--green-600'),
@@ -55,9 +55,7 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.chartOptions = {
             plugins: {
                 legend: {
-                    labels: {
-                        color: textColor
-                    }
+                    display: false
                 }
             },
             scales: {

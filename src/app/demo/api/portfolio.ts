@@ -6,5 +6,7 @@ export interface Portfolio {
     type: string;
     value: number;
     lastUpdateDate: Date;
+    createdAt: Date;
+    updatedAt: Date;
     user: User;
 }

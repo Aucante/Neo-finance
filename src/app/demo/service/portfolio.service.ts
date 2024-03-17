@@ -22,6 +22,8 @@ export interface Portfolio {
     value: number;
     portfolioLines: PortfolioLine[];
     lastUpdateDate: Date;
+    createdAt: Date;
+    updatedAt: Date;
 }
 
 @Injectable()
@@ -35,6 +37,8 @@ export class PortfolioService {
                 "type": "Cryptocurrencies",
                 "value": 5000,
                 "lastUpdateDate": new Date(),
+                "createdAt": new Date(new Date().getFullYear(), 2, 10, 14, 0, 0, 0),
+                "updatedAt": new Date(),
                 "portfolioLines": [
                     {
                         "id": 1,
@@ -92,6 +96,8 @@ export class PortfolioService {
                 "type": "Stocks",
                 "value": 10000,
                 "lastUpdateDate": new Date(),
+                "createdAt": new Date(new Date().getFullYear(), 0, 10, 14, 0, 0, 0),
+                "updatedAt": new Date(),
                 "portfolioLines": [
                     {
                         "id": 3,
@@ -125,6 +131,8 @@ export class PortfolioService {
                 "type": "Real Estate",
                 "value": 100000,
                 "lastUpdateDate": new Date(),
+                "createdAt": new Date(new Date().getFullYear(), 0, 10, 14, 0, 0, 0),
+                "updatedAt": new Date(),
                 "portfolioLines": [
                     {
                         "id": 5,
