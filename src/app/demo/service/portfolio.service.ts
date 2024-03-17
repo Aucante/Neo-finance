@@ -57,6 +57,30 @@ export class PortfolioService {
                             "color": "orange",
                             "lastValue": 3500
                         }
+                    },
+                    {
+                        "id": 6,
+                        "quantity": 5,
+                        "value": 0.80,
+                        "asset": {
+                            "id": 9,
+                            "name": "Cardano",
+                            "abbreviation": "ADA",
+                            "color": "green",
+                            "lastValue": 1
+                        }
+                    },
+                    {
+                        "id": 7,
+                        "quantity": 14,
+                        "value": 8,
+                        "asset": {
+                            "id": 6,
+                            "name": "Polkadot",
+                            "abbreviation": "DOT",
+                            "color": "cyan",
+                            "lastValue": 8
+                        }
                     }
                 ]
             },
