@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { debounceTime, Subscription } from "rxjs";
+import { Subscription } from "rxjs";
 import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
+import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -10,19 +11,24 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     assets!: Asset[];
 
+    portfolios!: Portfolio[];
+
     chartData: any;
 
     chartOptions: any;
 
     subscription!: Subscription;
 
-    constructor(private assetService: AssetService) {
+    constructor(private assetService: AssetService, private portfolioService: PortfolioService) {
     }
 
     ngOnInit() {
         this.initChart();
 
         this.assets = this.assetService.getAssets();
+        this.portfolios = this.portfolioService.getAllPortfoliosByUser();
+        console.log(this.assets)
+        console.log(this.portfolios)
     }
 
     initChart() {
