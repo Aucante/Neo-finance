@@ -10,7 +10,7 @@ export class PortfolioComponent implements OnInit, OnDestroy{
 
     portfolioId: string;
 
-    portfolios!: Portfolio[];
+    portfolio!: Portfolio;
 
     subscription!: Subscription;
 
@@ -20,11 +20,21 @@ export class PortfolioComponent implements OnInit, OnDestroy{
     ) { }
 
     ngOnInit() {
-        this.portfolios = this.portfolioService.getAllPortfoliosByUser();
+        const portfolios = this.portfolioService.getAllPortfoliosByUser();
 
         this.route.paramMap.subscribe(params => {
             this.portfolioId = params.get('id');
+
+            if ('1' === this.portfolioId) {
+                this.portfolio = this.portfolioService.getPortfolio1();
+            } else if ('2' === this.portfolioId) {
+                this.portfolio = this.portfolioService.getPortfolio2();
+            } else {
+                this.portfolio = this.portfolioService.getPortfolio3();
+            }
         });
+
+
     }
     ngOnDestroy() {
         if (this.subscription) {
