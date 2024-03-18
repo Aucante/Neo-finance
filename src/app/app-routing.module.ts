@@ -2,7 +2,6 @@ import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { NotfoundComponent } from './demo/components/notfound/notfound.component';
 import { AppLayoutComponent } from "./layout/app.layout.component";
-import { HomepageModule } from "./demo/components/homepage/homepage.module";
 
 @NgModule({
     imports: [
@@ -12,6 +11,7 @@ import { HomepageModule } from "./demo/components/homepage/homepage.module";
                 children: [
                     { path: '', loadChildren: () => import('./demo/components/dashboard/dashboard.module').then(m => m.DashboardModule) },
                     { path: 'homepage', loadChildren: () => import('./demo/components/homepage/homepage.module').then(m => m.HomepageModule) },
+                    { path: 'portfolio', loadChildren: () => import('./demo/components/portfolio/portfolio.module').then(m => m.PortfolioModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
                     { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
                     { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
