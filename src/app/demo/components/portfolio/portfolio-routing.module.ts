@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PortfolioComponent } from './portfolio.component';
-import { Portfolio, PortfolioService } from "../../service/portfolio.service";
-import { SlugHelper } from "../../helper/SlugHelper";
+import { PortfolioService } from "../../service/portfolio.service";
 
 
 @NgModule({
@@ -20,8 +19,7 @@ export class PortfolioRoutingModule {
         const portfolios = portfolioService.getAllPortfoliosByUser();
 
         portfolios.forEach(portfolio => {
-            const slug = SlugHelper.slugify(portfolio.name);
-            routes.push({ path: slug, component: PortfolioComponent });
+            routes.push({ path: ':id', component: PortfolioComponent });
         });
 
         return routes;

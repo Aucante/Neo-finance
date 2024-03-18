@@ -8,7 +8,6 @@ import { TableModule } from "primeng/table";
 import { StyleClassModule } from "primeng/styleclass";
 import { PanelMenuModule } from "primeng/panelmenu";
 import { ButtonModule } from "primeng/button";
-import { TotalValuePipe } from "../../pipe/total-value.pipe";
 import { PortfolioRoutingModule } from "./portfolio-routing.module";
 
 
@@ -26,7 +25,6 @@ import { PortfolioRoutingModule } from "./portfolio-routing.module";
     ],
     declarations: [
         PortfolioComponent,
-        TotalValuePipe
     ]
 })
 export class PortfolioModule { }
