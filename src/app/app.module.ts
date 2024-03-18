@@ -13,6 +13,7 @@ import { NodeService } from './demo/service/node.service';
 import { PhotoService } from './demo/service/photo.service';
 import { AssetService } from "./demo/service/asset.service";
 import { PortfolioService } from "./demo/service/portfolio.service";
+import { FinancialResultService } from "./demo/service/financial-result.service";
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
@@ -28,6 +29,7 @@ import { PortfolioService } from "./demo/service/portfolio.service";
         ProductService,
         AssetService,
         PortfolioService,
+        FinancialResultService,
     ],
     bootstrap: [AppComponent],
 })

@@ -3,6 +3,8 @@ import { Subscription } from "rxjs";
 import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
+import { FinancialResult, FinancialResultService } from "../../service/financial-result.service";
+import {  } from "../../service/financial-result.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -13,6 +15,8 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     portfolios!: Portfolio[];
 
+    financialResults!: FinancialResult[];
+
     paginator!: number;
 
     chartData: any;
@@ -21,15 +25,18 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     subscription!: Subscription;
 
-    constructor(private assetService: AssetService, private portfolioService: PortfolioService) {
-    }
+    constructor(
+        private assetService: AssetService,
+        private portfolioService: PortfolioService,
+        private financialResultService: FinancialResultService
+    ) { }
 
     ngOnInit() {
+        this.financialResults = this.financialResultService.getLastYearFinancialResultsByUser();
         this.initChart();
-
         this.assets = this.assetService.getAssets();
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-        console.log(this.portfolios);
+        console.log(this.financialResults.map(financialResult => financialResult.month));
     }
 
     initChart() {
@@ -39,11 +46,11 @@ export class HomepageComponent implements OnInit, OnDestroy{
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
         this.chartData = {
-            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+            labels: this.financialResults.map(financialResult => financialResult.month),
             datasets: [
                 {
                     label: '',
-                    data: [65, 59, 80, 81, 56, 55, 40, 65, 59, 80, 81, 56, 55, 40],
+                    data: this.financialResults.map(financialResult => financialResult.value),
                     fill: false,
                     backgroundColor: documentStyle.getPropertyValue('--green-600'),
                     borderColor: documentStyle.getPropertyValue('--green-600'),
