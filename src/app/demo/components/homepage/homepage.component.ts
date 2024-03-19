@@ -4,6 +4,7 @@ import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { FinancialResult, FinancialResultService } from "../../service/financial-result.service";
+import { ChartHelper } from "../../helper/chart-helper";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -32,58 +33,15 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     ngOnInit() {
         this.financialResults = this.financialResultService.getLastYearFinancialResultsByUser();
-        this.initChart();
+
+        const chartLabels = this.financialResults.map(financialResult => financialResult.month);
+        const chartDatas = this.financialResults.map(financialResult => financialResult.value);
+
+        this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
+        this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+
         this.assets = this.assetService.getAssets();
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-    }
-
-    initChart() {
-        const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-        this.chartData = {
-            labels: this.financialResults.map(financialResult => financialResult.month),
-            datasets: [
-                {
-                    label: '',
-                    data: this.financialResults.map(financialResult => financialResult.value),
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--green-600'),
-                    borderColor: documentStyle.getPropertyValue('--green-600'),
-                    tension: .1
-                }
-            ]
-        };
-
-        this.chartOptions = {
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                }
-            }
-        };
     }
 
     ngOnDestroy() {
