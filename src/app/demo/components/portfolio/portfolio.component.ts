@@ -1,8 +1,12 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
-import { Portfolio, PortfolioService } from "../../service/portfolio.service";
+import { Portfolio, PortfolioLine, PortfolioService } from "../../service/portfolio.service";
 import { ActivatedRoute } from "@angular/router";
 import { ChartHelper } from "../../helper/chart-helper";
+
+interface expandedRows {
+    [key: string]: boolean;
+}
 
 @Component({
     templateUrl: './portfolio.component.html'
@@ -16,6 +20,10 @@ export class PortfolioComponent implements OnInit, OnDestroy{
     chartData: any;
 
     chartOptions: any;
+
+    expandedRows: expandedRows = {};
+
+    isExpanded: boolean = false;
 
     subscription!: Subscription;
 
@@ -43,9 +51,19 @@ export class PortfolioComponent implements OnInit, OnDestroy{
 
             this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
             this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+
         });
 
 
+    }
+
+    expandAll() {
+        if (!this.isExpanded) {
+            this.portfolio.portfolioLines.forEach(portfolioLine => portfolioLine && portfolioLine.id ? this.expandedRows[portfolioLine.id] = true : '');
+        } else {
+            this.expandedRows = {};
+        }
+        this.isExpanded = !this.isExpanded;
     }
 
     ngOnDestroy() {

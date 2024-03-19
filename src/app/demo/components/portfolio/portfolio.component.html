@@ -20,12 +20,12 @@
         <div class="card">
             <h5>Row Expand</h5>
 <!--            <p-toast></p-toast>-->
-            <p-table >
-<!--                <ng-template pTemplate="caption">-->
-<!--                    <button pButton icon="pi pi-fw {{false ? 'pi-minus' : 'pi-plus'}}" label="{{false ? 'Collapse All' : 'Expand All'}}" ></button>-->
-<!--                    <div class="flex table-header">-->
-<!--                    </div>-->
-<!--                </ng-template>-->
+            <p-table [value]="portfolio.portfolioLines" dataKey="name" [expandedRowKeys]="expandedRows" responsiveLayout="scroll">
+                <ng-template pTemplate="caption">
+                    <button pButton icon="pi pi-fw {{isExpanded ? 'pi-minus' : 'pi-plus'}}" label="{{isExpanded ? 'Collapse All' : 'Expand All'}}" ></button>
+                    <div class="flex table-header">
+                    </div>
+                </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="width: 3rem"></th>
@@ -37,19 +37,19 @@
                         <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
                     </tr>
                 </ng-template>
-<!--                <ng-template pTemplate="body" >-->
-<!--                    <tr>-->
-<!--                        <td>-->
-<!--                            <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>-->
-<!--                        </td>-->
-<!--                        <td style="min-width: 12rem;">{{portfolio.name}}</td>-->
-<!--                        <td><img [src]="'assets/demo/images/product/' " [alt]="portfolio.name" width="100" class="shadow-4" /></td>-->
-<!--                        <td style="min-width: 8rem;">{{portfolio.value | currency:'USD'}}</td>-->
-<!--                        <td style="min-width: 10rem;">test</td>-->
-<!--                        <td style="min-width: 10rem;"><p-rating [ngModel]="5" [readonly]="true" [cancel]="false"></p-rating></td>-->
-<!--                        <td><span [class]="'product-badge status-' ">test</span></td>-->
-<!--                    </tr>-->
-<!--                </ng-template>-->
+                <ng-template pTemplate="body" let-portfolioLine let-expanded="expanded">
+                    <tr>
+                        <td>
+                            <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                        </td>
+                        <td style="min-width: 12rem;">{{portfolioLines}}</td>
+                        <td><img [src]="'assets/demo/images/product/' " [alt]="portfolio.name" width="100" class="shadow-4" /></td>
+                        <td style="min-width: 8rem;">{{portfolio.value | currency:'USD'}}</td>
+                        <td style="min-width: 10rem;">test</td>
+                        <td style="min-width: 10rem;"><p-rating [ngModel]="5" [readonly]="true" [cancel]="false"></p-rating></td>
+                        <td><span [class]="'product-badge status-' ">test</span></td>
+                    </tr>
+                </ng-template>
 <!--                <ng-template pTemplate="rowexpansion">-->
 <!--                    <tr>-->
 <!--                        <td colspan="7">-->
