@@ -4,7 +4,6 @@ import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { FinancialResult, FinancialResultService } from "../../service/financial-result.service";
-import {  } from "../../service/financial-result.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -36,7 +35,6 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.initChart();
         this.assets = this.assetService.getAssets();
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-        console.log(this.financialResults.map(financialResult => financialResult.month));
     }
 
     initChart() {
