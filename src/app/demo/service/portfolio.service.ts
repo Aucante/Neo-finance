@@ -91,7 +91,7 @@ export class PortfolioService {
                         }
                     }
                 ],
-                "financialResults": this.getLastYearFinancialResultsByUser()
+                "financialResults": this.getLastYearFinancialResultsByUser(1.1)
             },
             {
                 "id": 2,
@@ -127,7 +127,7 @@ export class PortfolioService {
                         }
                     }
                 ],
-                "financialResults": this.getLastYearFinancialResultsByUser()
+                "financialResults": this.getLastYearFinancialResultsByUser(1.2)
             },
             {
                 "id": 3,
@@ -151,7 +151,7 @@ export class PortfolioService {
                         }
                     }
                 ],
-                "financialResults": this.getLastYearFinancialResultsByUser()
+                "financialResults": this.getLastYearFinancialResultsByUser(1.3)
             }
         ];
     }
@@ -215,7 +215,7 @@ export class PortfolioService {
                     }
                 }
             ],
-            "financialResults": this.getLastYearFinancialResultsByUser()
+            "financialResults": this.getLastYearFinancialResultsByUser(1.1)
         };
     }
 
@@ -254,7 +254,7 @@ export class PortfolioService {
                     }
                 }
             ],
-            "financialResults": this.getLastYearFinancialResultsByUser()
+            "financialResults": this.getLastYearFinancialResultsByUser(1.2)
         };
     }
 
@@ -281,100 +281,100 @@ export class PortfolioService {
                     }
                 }
             ],
-            "financialResults": this.getLastYearFinancialResultsByUser()
+            "financialResults": this.getLastYearFinancialResultsByUser(1.3)
         };
     }
 
-    getLastYearFinancialResultsByUser(): FinancialResult[] {
+    getLastYearFinancialResultsByUser(coef: number): FinancialResult[] {
 
         const financialResults = [
             {
                 "id": 1,
-                "value": 1000,
+                "value": 1000 * coef,
                 "month": "sep",
                 "year": 2023
             },
             {
                 "id": 2,
-                "value": 4000,
+                "value": 4000 * coef,
                 "month": "oct",
                 "year": 2023
             },
             {
                 "id": 3,
-                "value": 14000,
+                "value": 14000 * coef,
                 "month": "nov",
                 "year": 2023
             },
             {
                 "id": 4,
-                "value": 20000,
+                "value": 20000 * coef,
                 "month": "dec",
                 "year": 2023
             },
             {
                 "id": 5,
-                "value": 35000,
+                "value": 35000 * coef,
                 "month": "jan",
                 "year": 2024
             },
             {
                 "id": 1,
-                "value": 10000,
+                "value": 10000 * coef,
                 "month": "feb",
                 "year": 2023
             },
             {
                 "id": 2,
-                "value": 24000,
+                "value": 24000 * coef,
                 "month": "mar",
                 "year": 2023
             },
             {
                 "id": 3,
-                "value": 14000,
+                "value": 14000 * coef,
                 "month": "apr",
                 "year": 2023
             },
             {
                 "id": 4,
-                "value": 20000,
+                "value": 20000 * coef,
                 "month": "may",
                 "year": 2023
             },
             {
                 "id": 5,
-                "value": 35000,
+                "value": 35000 * coef,
                 "month": "jun",
                 "year": 2024
             },
             {
                 "id": 1,
-                "value":30000,
+                "value":30000 * coef,
                 "month": "jul",
                 "year": 2023
             },
             {
                 "id": 2,
-                "value": 45000,
+                "value": 45000 * coef,
                 "month": "aug",
                 "year": 2023
             },
             {
                 "id": 3,
-                "value": 44000,
+                "value": 44000 * coef,
                 "month": "sep",
                 "year": 2023
             },
             {
                 "id": 4,
-                "value": 75000,
+                "value": 75000 * coef,
                 "month": "oct",
                 "year": 2023
             },
             {
                 "id": 5,
-                "value": 135000,
+                "value": 135000 * coef,
                 "month": "nov",
                 "year": 2024
             },

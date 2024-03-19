@@ -9,6 +9,9 @@ import { StyleClassModule } from "primeng/styleclass";
 import { PanelMenuModule } from "primeng/panelmenu";
 import { ButtonModule } from "primeng/button";
 import { PortfolioRoutingModule } from "./portfolio-routing.module";
+import { RatingModule } from "primeng/rating";
+import { RippleModule } from "primeng/ripple";
+import { ToastModule } from "primeng/toast";
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { PortfolioRoutingModule } from "./portfolio-routing.module";
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        PortfolioRoutingModule
+        PortfolioRoutingModule,
+        RatingModule,
+        RippleModule,
+        ToastModule
     ],
     declarations: [
         PortfolioComponent,
