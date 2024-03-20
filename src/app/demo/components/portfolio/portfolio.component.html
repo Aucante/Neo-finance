@@ -18,8 +18,7 @@
 
     <div class="col-12">
         <div class="card">
-            <h5>Row Expand</h5>
-<!--            <p-toast></p-toast>-->
+            <h5>ASSETS</h5>
             <p-table [value]="portfolio.portfolioLines" dataKey="name" [expandedRowKeys]="expandedRows" responsiveLayout="scroll">
                 <ng-template pTemplate="caption">
                     <button pButton icon="pi pi-fw {{isExpanded ? 'pi-minus' : 'pi-plus'}}" label="{{isExpanded ? 'Collapse All' : 'Expand All'}}" ></button>
@@ -29,12 +28,11 @@
                 <ng-template pTemplate="header">
                     <tr>
                         <th style="width: 3rem"></th>
-                        <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon></th>
-                        <th>Image</th>
-                        <th pSortableColumn="price">Price <p-sortIcon field="price"></p-sortIcon></th>
-                        <th pSortableColumn="category">Category <p-sortIcon field="category"></p-sortIcon></th>
-                        <th pSortableColumn="rating">Reviews <p-sortIcon field="rating"></p-sortIcon></th>
-                        <th pSortableColumn="inventoryStatus">Status <p-sortIcon field="inventoryStatus"></p-sortIcon></th>
+                        <th></th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
                     </tr>
                 </ng-template>
                 <ng-template pTemplate="body" let-portfolioLine let-expanded="expanded">
@@ -42,12 +40,11 @@
                         <td>
                             <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
                         </td>
-                        <td style="min-width: 12rem;">{{portfolioLines}}</td>
-                        <td><img [src]="'assets/demo/images/product/' " [alt]="portfolio.name" width="100" class="shadow-4" /></td>
-                        <td style="min-width: 8rem;">{{portfolio.value | currency:'USD'}}</td>
-                        <td style="min-width: 10rem;">test</td>
-                        <td style="min-width: 10rem;"><p-rating [ngModel]="5" [readonly]="true" [cancel]="false"></p-rating></td>
-                        <td><span [class]="'product-badge status-' ">test</span></td>
+                        <td><img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" [alt]="portfolio.name" height="25" width="25" style="border-radius: 50%" class="shadow-4" /></td>
+                        <td style="min-width: 12rem;">{{portfolioLine.asset.name}}</td>
+                        <td style="min-width: 8rem;">{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
+                        <td style="min-width: 10rem;">{{portfolioLine.quantity}}</td>
+                        <td style="min-width: 10rem;">{{portfolioLine.value | currency:'USD'}}</td>
                     </tr>
                 </ng-template>
 <!--                <ng-template pTemplate="rowexpansion">-->
