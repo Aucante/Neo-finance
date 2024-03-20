@@ -51,9 +51,6 @@ export class PortfolioComponent implements OnInit, OnDestroy{
 
             this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
             this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
-
-            console.table(this.portfolio.portfolioLines)
-
         });
 
 

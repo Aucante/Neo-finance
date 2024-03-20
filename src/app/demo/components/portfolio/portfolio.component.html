@@ -6,28 +6,12 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
     <div class="col-12">
         <div class="card">
             <h5>ASSETS</h5>
-            <p-table [value]="portfolio.portfolioLines" dataKey="name" [expandedRowKeys]="expandedRows" responsiveLayout="scroll">
-                <ng-template pTemplate="caption">
-                    <button pButton icon="pi pi-fw {{isExpanded ? 'pi-minus' : 'pi-plus'}}" label="{{isExpanded ? 'Collapse All' : 'Expand All'}}" ></button>
-                    <div class="flex table-header">
-                    </div>
-                </ng-template>
+            <p-table [value]="portfolio.portfolioLines" dataKey="name" responsiveLayout="scroll">
                 <ng-template pTemplate="header">
                     <tr>
-                        <th style="width: 3rem"></th>
                         <th></th>
                         <th>Name</th>
                         <th>Price</th>
@@ -35,53 +19,15 @@
                         <th>Total</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-portfolioLine let-expanded="expanded">
+                <ng-template pTemplate="body" let-portfolioLine>
                     <tr>
-                        <td>
-                            <button type="button" pButton pRipple class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
-                        </td>
                         <td><img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" [alt]="portfolio.name" height="25" width="25" style="border-radius: 50%" class="shadow-4" /></td>
-                        <td style="min-width: 12rem;">{{portfolioLine.asset.name}}</td>
-                        <td style="min-width: 8rem;">{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
-                        <td style="min-width: 10rem;">{{portfolioLine.quantity}}</td>
-                        <td style="min-width: 10rem;">{{portfolioLine.value | currency:'USD'}}</td>
+                        <td>{{portfolioLine.asset.name}}</td>
+                        <td>{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
+                        <td>{{portfolioLine.quantity}}</td>
+                        <td>{{portfolioLine.value | currency:'USD'}}</td>
                     </tr>
                 </ng-template>
-<!--                <ng-template pTemplate="rowexpansion">-->
-<!--                    <tr>-->
-<!--                        <td colspan="7">-->
-<!--                            <div class="p-3">-->
-<!--                                <p-table [value]="portfolio.portfolioLines" dataKey="id" responsiveLayout="scroll">-->
-<!--                                    <ng-template pTemplate="header">-->
-<!--                                        <tr>-->
-<!--                                            <th pSortableColumn="id">Id <p-sortIcon field="price"></p-sortIcon></th>-->
-<!--                                            <th pSortableColumn="customer">Customer <p-sortIcon field="customer"></p-sortIcon></th>-->
-<!--                                            <th pSortableColumn="date">Date <p-sortIcon field="date"></p-sortIcon></th>-->
-<!--                                            <th pSortableColumn="amount">Amount <p-sortIcon field="amount"></p-sortIcon></th>-->
-<!--                                            <th pSortableColumn="stats">Status <p-sortIcon field="status"></p-sortIcon></th>-->
-<!--                                            <th style="width: 4rem"></th>-->
-<!--                                        </tr>-->
-<!--                                    </ng-template>-->
-<!--&lt;!&ndash;                                    <ng-template pTemplate="body" let-order>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        <tr>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td>{{order.id}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td>{{order.customer}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td>{{order.date}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td>{{order.amount | currency:'USD'}}</td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td><span [class]="'order-badge order-' + order.status.toLowerCase()">{{order.status}}</span></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                            <td><p-button type="button" icon="pi pi-search"></p-button></td>&ndash;&gt;-->
-<!--&lt;!&ndash;                                        </tr>&ndash;&gt;-->
-<!--&lt;!&ndash;                                    </ng-template>&ndash;&gt;-->
-<!--                                    <ng-template pTemplate="emptymessage">-->
-<!--                                        <tr>-->
-<!--                                            <td colspan="6">There are no order for this product yet.</td>-->
-<!--                                        </tr>-->
-<!--                                    </ng-template>-->
-<!--                                </p-table>-->
-<!--                            </div>-->
-<!--                        </td>-->
-<!--                    </tr>-->
-<!--                </ng-template>-->
             </p-table>
         </div>
     </div>
