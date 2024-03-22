@@ -26,7 +26,7 @@
             <span>Settings</span>
         </button>
         <button class="p-link layout-topbar-button" (click)="this.toggleDarkMode()">
-            <i class="pi pi-cog"></i>
+            <i class="pi" [class.pi-moon]="!isDarkMode" [class.pi-sun]="isDarkMode"></i>
             <span>Dark Mode</span>
         </button>
     </div>

@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from "./service/app.layout.service";
+import { DARK_COLORSCHEME, LIGHT_COLORSCHEME, SAGA_GREEN_THEME, VELA_GREEN_THEME } from "./config/themes.constants";
 
 @Component({
     selector: 'app-topbar',
@@ -9,6 +10,8 @@ import { LayoutService } from "./service/app.layout.service";
 export class AppTopBarComponent {
 
     items!: MenuItem[];
+
+    isDarkMode: boolean = true;
 
     @ViewChild('menubutton') menuButton!: ElementRef;
 
@@ -19,8 +22,7 @@ export class AppTopBarComponent {
     constructor(public layoutService: LayoutService) { }
 
     changeTheme() {
-        console.log(this.theme)
-        const theme = this.theme === "vela-green" ? "md-light-deeppurple" : "vela-green";
+        const theme = this.theme === VELA_GREEN_THEME ? SAGA_GREEN_THEME : VELA_GREEN_THEME;
         this.layoutService.config.update((config) => ({
             ...config,
             theme: theme,
@@ -28,8 +30,7 @@ export class AppTopBarComponent {
     }
 
     changeColorScheme() {
-        console.log(this.colorScheme)
-        const colorScheme = this.colorScheme === "dark" ? "light" : "dark";
+        const colorScheme = this.colorScheme === DARK_COLORSCHEME ? LIGHT_COLORSCHEME : DARK_COLORSCHEME;
         this.layoutService.config.update((config) => ({
             ...config,
             colorScheme: colorScheme,
@@ -39,6 +40,7 @@ export class AppTopBarComponent {
     toggleDarkMode() {
         this.changeTheme();
         this.changeColorScheme();
+        this.isDarkMode = !this.isDarkMode;
     }
 
     get theme(): string {
