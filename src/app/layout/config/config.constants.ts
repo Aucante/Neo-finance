@@ -6,3 +6,5 @@ export const SCALE_VALUE: number = 14;
 export const MENU_MODE: string = 'static';
 export const INPUT_STYLE: string = 'outlined';
 export const RIPPLE: boolean = false;
+export const THEME: string = 'theme';
+export const COLORSCHEME: string = 'colorscheme';

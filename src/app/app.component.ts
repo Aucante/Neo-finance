@@ -24,12 +24,14 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.primengConfig.ripple = true;
 
+        const theme = this.layoutService.loadThemeFromLocalStorage();
+
         const config: AppConfig = {
             ripple: RIPPLE,
             inputStyle: INPUT_STYLE,
             menuMode: MENU_MODE,
             colorScheme: DARK_COLORSCHEME,
-            theme: VELA_GREEN_THEME,
+            theme: theme,
             scale: SCALE_VALUE
         };
         this.layoutService.config.set(config);

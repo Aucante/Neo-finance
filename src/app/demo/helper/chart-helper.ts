@@ -15,7 +15,8 @@ export class ChartHelper {
                     fill: false,
                     backgroundColor: documentStyle.getPropertyValue('--green-600'),
                     borderColor: documentStyle.getPropertyValue('--green-600'),
-                    tension: .1
+                    tension: .1,
+                    borderWidth: 1,
                 }
             ]
         };

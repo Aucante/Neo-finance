@@ -1,5 +1,6 @@
 import { Injectable, effect, signal } from '@angular/core';
 import { Subject } from 'rxjs';
+import { THEME } from "../config/config.constants";
 
 export interface AppConfig {
     inputStyle: string;
@@ -155,5 +156,9 @@ export class LayoutService {
 
     changeScale(value: number) {
         document.documentElement.style.fontSize = `${value}px`;
+    }
+
+    loadThemeFromLocalStorage(): string {
+        return localStorage.getItem(THEME);
     }
 }
