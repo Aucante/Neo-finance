@@ -4,9 +4,9 @@
         <span>SAKAI</span>
     </a>
 
-    <button #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
+    <a #menubutton class="p-link layout-menu-button layout-topbar-button" (click)="layoutService.onMenuToggle()">
         <i class="pi pi-bars"></i>
-    </button>
+    </a>
 
     <button #topbarmenubutton class="p-link layout-topbar-menu-button layout-topbar-button" (click)="layoutService.showProfileSidebar()">
         <i class="pi pi-ellipsis-v"></i>
@@ -25,9 +25,9 @@
             <i class="pi pi-cog"></i>
             <span>Settings</span>
         </button>
-        <button class="p-link layout-topbar-button" (click)="this.toggleDarkMode()">
+        <a class="p-link layout-topbar-button" (click)="this.toggleDarkMode()">
             <i class="pi" [class.pi-moon]="!isDarkMode" [class.pi-sun]="isDarkMode"></i>
             <span>Dark Mode</span>
-        </button>
+        </a>
     </div>
 </div>

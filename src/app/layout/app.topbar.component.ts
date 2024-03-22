@@ -1,7 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { LayoutService } from "./service/app.layout.service";
-import { DARK_COLORSCHEME, LIGHT_COLORSCHEME, SAGA_GREEN_THEME, VELA_GREEN_THEME } from "./config/themes.constants";
+import { DARK_COLORSCHEME, LIGHT_COLORSCHEME, SAGA_GREEN_THEME, VELA_GREEN_THEME } from "./config/config.constants";
 
 @Component({
     selector: 'app-topbar',

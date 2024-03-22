@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { PrimeNGConfig } from 'primeng/api';
 import { AppConfig, LayoutService } from "./layout/service/app.layout.service";
-import { DARK_COLORSCHEME, VELA_GREEN_THEME } from "./layout/config/themes.constants";
+import {
+    DARK_COLORSCHEME,
+    INPUT_STYLE,
+    MENU_MODE,
+    RIPPLE,
+    SCALE_VALUE,
+    VELA_GREEN_THEME
+} from "./layout/config/config.constants";
 
 @Component({
     selector: 'app-root',
@@ -18,12 +25,12 @@ export class AppComponent implements OnInit {
         this.primengConfig.ripple = true;
 
         const config: AppConfig = {
-            ripple: false,
-            inputStyle: 'outlined',
-            menuMode: 'static',
+            ripple: RIPPLE,
+            inputStyle: INPUT_STYLE,
+            menuMode: MENU_MODE,
             colorScheme: DARK_COLORSCHEME,
             theme: VELA_GREEN_THEME,
-            scale: 14
+            scale: SCALE_VALUE
         };
         this.layoutService.config.set(config);
     }
