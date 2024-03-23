@@ -36,7 +36,7 @@ export class PortfolioService {
             {
                 "id": 1,
                 "name": "Cryptocurrencies Portfolio 1",
-                "type": "Cryptocurrencies",
+                "type": "Cryptocurrency",
                 "value": 5000,
                 "lastUpdateDate": new Date(),
                 "createdAt": new Date(new Date().getFullYear(), 2, 10, 14, 0, 0, 0),
@@ -96,7 +96,7 @@ export class PortfolioService {
             {
                 "id": 2,
                 "name": "Stocks Portfolio 1",
-                "type": "Stocks",
+                "type": "Stock",
                 "value": 10000,
                 "lastUpdateDate": new Date(),
                 "createdAt": new Date(new Date().getFullYear(), 0, 10, 14, 0, 0, 0),
@@ -160,7 +160,7 @@ export class PortfolioService {
         return {
             "id": 1,
             "name": "Cryptocurrencies Portfolio 1",
-            "type": "Cryptocurrencies",
+            "type": "Cryptocurrency",
             "value": 5000,
             "lastUpdateDate": new Date(),
             "createdAt": new Date(new Date().getFullYear(), 2, 10, 14, 0, 0, 0),
@@ -223,7 +223,7 @@ export class PortfolioService {
         return  {
             "id": 2,
             "name": "Stocks Portfolio 1",
-            "type": "Stocks",
+            "type": "Stock",
             "value": 10000,
             "lastUpdateDate": new Date(),
             "createdAt": new Date(new Date().getFullYear(), 0, 10, 14, 0, 0, 0),

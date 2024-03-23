@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
 import { PortfolioService } from "../demo/service/portfolio.service";
+import { IconHelper } from "../demo/helper/icon-helper";
 
 @Component({
     selector: 'app-menu',
@@ -28,6 +29,12 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Portfolios',
                 items: this.getPortfoliosRoutes(),
+            },
+            {
+                label: 'Action',
+                items: [
+                    { label: 'Create', icon: 'pi pi-fw pi-plus', routerLink: ['/create'] },
+                ]
             },
             {
                 label: 'UI Components',
@@ -156,7 +163,9 @@ export class AppMenuComponent implements OnInit {
 
     private getPortfoliosRoutes() {
         return this.portfolioService.getAllPortfoliosByUser().map(portfolio => {
-            return { label: portfolio.name, icon: 'pi pi-fw pi-home', routerLink: [`/portfolio/${portfolio.id}`] };
+            return {
+                label: portfolio.name, icon: IconHelper.getIcon(portfolio.type), routerLink: [`/portfolio/${portfolio.id}`]
+            };
         });
     }
 }
