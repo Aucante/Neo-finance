@@ -31,12 +31,6 @@ export class AppMenuComponent implements OnInit {
                 items: this.getPortfoliosRoutes(),
             },
             {
-                label: 'Action',
-                items: [
-                    { label: 'Create', icon: 'pi pi-fw pi-plus', routerLink: ['/create'] },
-                ]
-            },
-            {
                 label: 'UI Components',
                 items: [
                     { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout'] },
