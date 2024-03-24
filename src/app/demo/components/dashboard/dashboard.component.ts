@@ -4,6 +4,14 @@ import { Product } from '../../api/product';
 import { ProductService } from '../../service/product.service';
 import { Subscription, debounceTime } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { ChartHelper } from "../../helper/chart-helper";
+import { FinancialResult } from "../../service/financial-result.service";
+import { AssetApiService } from "../../service/api/asset-api.service";
+
+interface ChartData {
+    labels: string[];
+    datas: number[];
+}
 
 @Component({
     templateUrl: './dashboard.component.html',
@@ -20,16 +28,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    constructor(private productService: ProductService, public layoutService: LayoutService) {
-        this.subscription = this.layoutService.configUpdate$
-        .pipe(debounceTime(25))
-        .subscribe((config) => {
-            this.initChart();
-        });
-    }
+    assetData: any;
+
+    constructor(
+        private productService: ProductService,
+        private assetApiService: AssetApiService
+    ) { }
 
     ngOnInit() {
-        this.initChart();
+        this.getAssetData();
         this.productService.getProductsSmall().then(data => this.products = data);
 
         this.items = [
@@ -38,63 +45,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ];
     }
 
-    initChart() {
-        const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
-        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    getAssetData(): any {
+        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', 'ETH', 'USD')
+            .subscribe(data => {
+                this.assetData = data;
+                const response = this.assetData["Time Series (Digital Currency Daily)"];
 
-        this.chartData = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    borderColor: documentStyle.getPropertyValue('--bluegray-700'),
-                    tension: .4
-                },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
-                    fill: false,
-                    backgroundColor: documentStyle.getPropertyValue('--green-600'),
-                    borderColor: documentStyle.getPropertyValue('--green-600'),
-                    tension: .4
-                }
-            ]
-        };
+                const dateAndOpenValue = Object.entries(response).map(([date, data]) => ({
+                    date,
+                    openValue: data["1a. open (USD)"]
+                }));
 
-        this.chartOptions = {
-            plugins: {
-                legend: {
-                    labels: {
-                        color: textColor
-                    }
-                }
-            },
-            scales: {
-                x: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                },
-                y: {
-                    ticks: {
-                        color: textColorSecondary
-                    },
-                    grid: {
-                        color: surfaceBorder,
-                        drawBorder: false
-                    }
-                }
-            }
-        };
+                const chartLabels = dateAndOpenValue.reverse().map(value => ChartHelper.formatDate(value.date));
+                const chartDatas = dateAndOpenValue.map(value => value.openValue);
+
+                this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
+                this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+            });
     }
 
     ngOnDestroy() {
@@ -102,4 +69,58 @@ export class DashboardComponent implements OnInit, OnDestroy {
             this.subscription.unsubscribe();
         }
     }
+
+
+
+
+    // initChart(labels, datas) {
+    //     const documentStyle = getComputedStyle(document.documentElement);
+    //     const textColor = documentStyle.getPropertyValue('--text-color');
+    //     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+    //     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+    //
+    //     this.chartData = {
+    //         labels: labels,
+    //         datasets: [
+    //             {
+    //                 label: 'First Dataset',
+    //                 data: datas,
+    //                 fill: false,
+    //                 backgroundColor: documentStyle.getPropertyValue('--bluegray-700'),
+    //                 borderColor: documentStyle.getPropertyValue('--bluegray-700'),
+    //                 tension: .4
+    //             }
+    //         ]
+    //     };
+    //
+    //     this.chartOptions = {
+    //         plugins: {
+    //             legend: {
+    //                 labels: {
+    //                     color: textColor
+    //                 }
+    //             }
+    //         },
+    //         scales: {
+    //             x: {
+    //                 ticks: {
+    //                     color: textColorSecondary
+    //                 },
+    //                 grid: {
+    //                     color: surfaceBorder,
+    //                     drawBorder: false
+    //                 }
+    //             },
+    //             y: {
+    //                 ticks: {
+    //                     color: textColorSecondary
+    //                 },
+    //                 grid: {
+    //                     color: surfaceBorder,
+    //                     drawBorder: false
+    //                 }
+    //             }
+    //         }
+    //     };
+    // }
 }

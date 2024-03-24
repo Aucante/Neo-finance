@@ -1,6 +1,6 @@
 export class ChartHelper {
 
-    static initChart(labels: string[], datas: number[]): [any, any] {
+    static initChart(labels: string[], datas: number[]): [chartOptions: any, chartData: any] {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
@@ -16,7 +16,9 @@ export class ChartHelper {
                     backgroundColor: documentStyle.getPropertyValue('--green-600'),
                     borderColor: documentStyle.getPropertyValue('--green-600'),
                     tension: .1,
-                    borderWidth: 1,
+                    borderWidth: 2,
+                    pointRadius: 0,
+                    pointHoverRadius: 0,
                 }
             ]
         };
@@ -30,7 +32,10 @@ export class ChartHelper {
             scales: {
                 x: {
                     ticks: {
-                        color: textColorSecondary
+                        color: textColorSecondary,
+                        autoSkip: true,
+                        maxRotation: 0,
+                        minRotation: 0,
                     },
                     grid: {
                         color: surfaceBorder,
@@ -50,5 +55,25 @@ export class ChartHelper {
         };
 
         return [chartOptions, chartData];
+    }
+
+    static formatDate(dateString: string): string {
+        const months = [
+            "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+            "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+        ];
+
+        const date = new Date(dateString);
+        const monthIndex = date.getMonth();
+        const year = date.getFullYear();
+
+        let formattedDate: string;
+        if (monthIndex === 0) {
+            formattedDate = year.toString();
+        } else {
+            formattedDate = monthIndex.toString();
+        }
+
+        return formattedDate;
     }
 }

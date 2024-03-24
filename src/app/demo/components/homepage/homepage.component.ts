@@ -37,35 +37,14 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     ngOnInit() {
         this.financialResults = this.financialResultService.getLastYearFinancialResultsByUser();
-        this.getAssetData();
+
+        const chartLabels = this.financialResults.map(financialResult => financialResult.month);
+        const chartDatas = this.financialResults.map(financialResult => financialResult.value);
+        this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
+        this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+
         this.assets = this.assetService.getAssets();
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-    }
-
-    getAssetData(): any {
-        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_WEEKLY', 'ETH', 'USD')
-            .subscribe(data => {
-                this.assetData = data;
-
-                // console.log(this.assetData["Time Series (Digital Currency Monthly)"])
-
-                const response = this.assetData["Time Series (Digital Currency Weekly)"];
-
-                const dateAndOpenValue = Object.entries(response).map(([date, data]) => ({
-                    date,
-                    openValue: data["1a. open (USD)"]
-                }));
-
-                console.log(dateAndOpenValue);
-                console.log(this.financialResults)
-
-                // const chartLabels = this.financialResults.map(financialResult => financialResult.month);
-                // const chartDatas = this.financialResults.map(financialResult => financialResult.value);
-                const chartLabels = dateAndOpenValue.map(value => value.date);
-                const chartDatas = dateAndOpenValue.map(value => value.openValue);
-                this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
-                this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
-            });
     }
 
     ngOnDestroy() {
