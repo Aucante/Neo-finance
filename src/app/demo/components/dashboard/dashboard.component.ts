@@ -80,8 +80,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
 
-
-
     // initChart(labels, datas) {
     //     const documentStyle = getComputedStyle(document.documentElement);
     //     const textColor = documentStyle.getPropertyValue('--text-color');
