@@ -62,12 +62,15 @@
 
     <div class="col-12 xl:col-6">
         <div class="card">
-            <h5>{{assetSelected}}</h5>
+            <h5>{{assetSelected?.abbreviation}}</h5>
             <div class="button-container">
-                <p-button label="ETH" [outlined]="true" [rounded]="true" (click)="getAssetData('ETH')" class="mr-3"></p-button>
-                <p-button label="BTC" [outlined]="true" [rounded]="true" (click)="assetSelected = 'Nouveau titre'; getAssetData('BTC')" class="mr-3"></p-button>
-                <p-button label="SOL" [outlined]="true" [rounded]="true" (click)="getAssetData('SOL')" class="mr-3"></p-button>
-                <p-button label="XRP" [outlined]="true" [rounded]="true" (click)="getAssetData('XRP')" class="mr-3"></p-button>
+                <p-button *ngFor="let asset of assets"
+                          [label]="asset.abbreviation"
+                          [outlined]="true"
+                          [rounded]="true"
+                          (click)="assetSelected = asset; getAssetData(asset)"
+                          class="mr-3">
+                </p-button>
             </div>
             <br>
             <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>

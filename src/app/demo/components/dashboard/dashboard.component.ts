@@ -7,6 +7,8 @@ import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { ChartHelper } from "../../helper/chart-helper";
 import { FinancialResult } from "../../service/financial-result.service";
 import { AssetApiService } from "../../service/api/asset-api.service";
+import { Asset } from "../../service/portfolio.service";
+import { AssetService } from "../../service/asset.service";
 
 interface ChartData {
     labels: string[];
@@ -30,16 +32,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     assetData: any;
 
-    assetSelected: string;
+    assetSelected: Asset;
+
+    assets!: Asset[];
 
     constructor(
         private productService: ProductService,
-        private assetApiService: AssetApiService
+        private assetApiService: AssetApiService,
+        private assetService: AssetService,
     ) { }
 
     ngOnInit() {
-        this.getAssetData('BTC');
         this.productService.getProductsSmall().then(data => this.products = data);
+        this.assets = this.assetService.getAssets();
+        this.getAssetData(this.assets[0]);
 
         this.items = [
             { label: 'Add New', icon: 'pi pi-fw pi-plus' },
@@ -47,8 +53,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ];
     }
 
-    getAssetData(asset: string): any {
-        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', asset, 'USD')
+    getAssetData(asset: Asset): any {
+        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', asset.abbreviation, 'USD')
             .subscribe(data => {
                 this.assetData = data;
                 this.assetSelected = asset;
