@@ -30,13 +30,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     assetData: any;
 
+    assetSelected: string;
+
     constructor(
         private productService: ProductService,
         private assetApiService: AssetApiService
     ) { }
 
     ngOnInit() {
-        this.getAssetData();
+        this.getAssetData('BTC');
         this.productService.getProductsSmall().then(data => this.products = data);
 
         this.items = [
@@ -45,10 +47,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
         ];
     }
 
-    getAssetData(): any {
-        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', 'ETH', 'USD')
+    getAssetData(asset: string): any {
+        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', asset, 'USD')
             .subscribe(data => {
                 this.assetData = data;
+                this.assetSelected = asset;
                 const response = this.assetData["Time Series (Digital Currency Daily)"];
 
                 const dateAndOpenValue = Object.entries(response).map(([date, data]) => ({
