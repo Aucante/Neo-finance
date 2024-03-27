@@ -1,8 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { MenuItem } from 'primeng/api';
-import { Product } from '../../api/product';
-import { ProductService } from '../../service/product.service';
-import { Subscription, debounceTime, of } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { ChartHelper } from "../../helper/chart-helper";
 import {
     AssetApiService,
@@ -24,10 +21,6 @@ interface responseAssetApiData {
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-    items!: MenuItem[];
-
-    products!: Product[];
-
     chartData: any;
 
     chartOptions: any;
@@ -41,20 +34,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private assetDataCache: Map<string, any> = new Map<string, any>();
 
     constructor(
-        private productService: ProductService,
         private assetApiService: AssetApiService,
         private assetService: AssetService,
     ) { }
 
     ngOnInit() {
-        this.productService.getProductsSmall().then(data => this.products = data);
         this.assets = this.assetService.getAssets();
         this.getAssetData(this.assets[0]);
-
-        this.items = [
-            { label: 'Add New', icon: 'pi pi-fw pi-plus' },
-            { label: 'Remove', icon: 'pi pi-fw pi-minus' }
-        ];
     }
 
     getAssetData(asset: Asset): any {
