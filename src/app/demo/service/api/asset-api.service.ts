@@ -3,6 +3,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { config } from "../../../../environments/config";
 
+export const REQUEST_DIGITAL_CURRENCY_DAILY = 'DIGITAL_CURRENCY_DAILY';
+export const MARKET_USD = 'USD';
+export const RESPONSE_DATA_KEY = 'Time Series (Digital Currency Daily)';
+export const RESPONSE_VALUES_KEY = '1a. open (USD)';
+
 @Injectable({
     providedIn: 'root'
 })
