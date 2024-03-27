@@ -2,17 +2,18 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Product } from '../../api/product';
 import { ProductService } from '../../service/product.service';
-import { Subscription, debounceTime } from 'rxjs';
+import { Subscription, debounceTime, of } from 'rxjs';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
 import { ChartHelper } from "../../helper/chart-helper";
 import { FinancialResult } from "../../service/financial-result.service";
 import { AssetApiService } from "../../service/api/asset-api.service";
 import { Asset } from "../../service/portfolio.service";
 import { AssetService } from "../../service/asset.service";
+import { ChartData, ChartOptions } from "chart.js";
 
-interface ChartData {
-    labels: string[];
-    datas: number[];
+interface responseAssetApiData {
+    date: string,
+    openValue: string
 }
 
 @Component({
@@ -30,11 +31,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     subscription!: Subscription;
 
-    assetData: any;
-
     assetSelected: Asset;
 
     assets!: Asset[];
+
+    private assetDataCache: Map<string, any> = new Map<string, any>();
 
     constructor(
         private productService: ProductService,
@@ -54,23 +55,38 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     getAssetData(asset: Asset): any {
-        return this.assetApiService.getAssetData('DIGITAL_CURRENCY_DAILY', asset.abbreviation, 'USD')
-            .subscribe(data => {
-                this.assetData = data;
-                this.assetSelected = asset;
-                const response = this.assetData["Time Series (Digital Currency Daily)"];
 
-                const dateAndOpenValue = Object.entries(response).map(([date, data]) => ({
-                    date,
-                    openValue: data["1a. open (USD)"]
-                }));
+        this.assetSelected = asset;
+        const cachedAssetData = this.assetDataCache.get(this.assetSelected.abbreviation);
 
-                const chartLabels = dateAndOpenValue.reverse().map(value => ChartHelper.formatDate(value.date));
-                const chartDatas = dateAndOpenValue.map(value => value.openValue);
+        if (cachedAssetData) {
+            this.handleAssetDatas(cachedAssetData)
+        } else {
+            return this.assetApiService.getAssetDataTimeSeries('DIGITAL_CURRENCY_DAILY', asset.abbreviation, 'USD')
+                .subscribe(data => {
+                    const response = data["Time Series (Digital Currency Daily)"];
+                    const responseAsset = Object.entries(response).map(([date, data]) => ({
+                        date,
+                        openValue: data["1a. open (USD)"]
+                    }));
 
-                this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
-                this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
-            });
+                    this.handleAssetDatas(responseAsset)
+                });
+        }
+    }
+
+    handleAssetDatas(responseAsset: responseAssetApiData[]): void {
+        this.assetSelected.lastValue = parseFloat(responseAsset[0].openValue);
+        this.setChartDataOption(responseAsset);
+        this.assetDataCache.set(this.assetSelected.abbreviation, responseAsset);
+    }
+
+    setChartDataOption(dateAndOpenValue: responseAssetApiData[]): void {
+        const chartLabels: string[] = dateAndOpenValue.reverse().map(value => ChartHelper.formatDate(value.date));
+        const chartDatas: number[] = dateAndOpenValue.map(value => parseFloat(value.openValue));
+        const chartValues: [ChartOptions, ChartData] = ChartHelper.initChart(chartLabels, chartDatas);
+        this.chartOptions = chartValues[0];
+        this.chartData = chartValues[1];
     }
 
     ngOnDestroy() {
@@ -78,56 +94,4 @@ export class DashboardComponent implements OnInit, OnDestroy {
             this.subscription.unsubscribe();
         }
     }
-
-
-    // initChart(labels, datas) {
-    //     const documentStyle = getComputedStyle(document.documentElement);
-    //     const textColor = documentStyle.getPropertyValue('--text-color');
-    //     const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-    //     const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-    //
-    //     this.chartData = {
-    //         labels: labels,
-    //         datasets: [
-    //             {
-    //                 label: 'First Dataset',
-    //                 data: datas,
-    //                 fill: false,
-    //                 backgroundColor: documentStyle.getPropertyValue('--bluegray-700'),
-    //                 borderColor: documentStyle.getPropertyValue('--bluegray-700'),
-    //                 tension: .4
-    //             }
-    //         ]
-    //     };
-    //
-    //     this.chartOptions = {
-    //         plugins: {
-    //             legend: {
-    //                 labels: {
-    //                     color: textColor
-    //                 }
-    //             }
-    //         },
-    //         scales: {
-    //             x: {
-    //                 ticks: {
-    //                     color: textColorSecondary
-    //                 },
-    //                 grid: {
-    //                     color: surfaceBorder,
-    //                     drawBorder: false
-    //                 }
-    //             },
-    //             y: {
-    //                 ticks: {
-    //                     color: textColorSecondary
-    //                 },
-    //                 grid: {
-    //                     color: surfaceBorder,
-    //                     drawBorder: false
-    //                 }
-    //             }
-    //         }
-    //     };
-    // }
 }

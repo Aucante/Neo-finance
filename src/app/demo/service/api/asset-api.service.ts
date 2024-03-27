@@ -10,7 +10,7 @@ export class AssetApiService {
 
     constructor(private http: HttpClient) { }
 
-    getAssetData(assetFunction: string, symbol: string, market: string): Observable<any> {
+    getAssetDataTimeSeries(assetFunction: string, symbol: string, market: string): Observable<any> {
 
         const apiUrl = `https://alpha-vantage.p.rapidapi.com/query?function=${assetFunction}&symbol=${symbol}&market=${market}`;
         const headers = new HttpHeaders().set('X-RapidAPI-Key', config.apiKey).set('X-RapidAPI-Host', config.apiHost);
