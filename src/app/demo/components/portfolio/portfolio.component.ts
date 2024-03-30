@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
-import { Portfolio, PortfolioLine, PortfolioService } from "../../service/portfolio.service";
+import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { ActivatedRoute } from "@angular/router";
 import { ChartHelper } from "../../helper/chart-helper";
 
@@ -33,8 +33,6 @@ export class PortfolioComponent implements OnInit, OnDestroy{
     ) { }
 
     ngOnInit() {
-        const portfolios = this.portfolioService.getAllPortfoliosByUser();
-
         this.route.paramMap.subscribe(params => {
             this.portfolioId = params.get('id');
 
