@@ -27,6 +27,12 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
+                label: 'Settings',
+                items: [
+                    { label: 'Settings', icon: 'pi pi-fw pi-home', routerLink: ['/settings'] },
+                ]
+            },
+            {
                 label: 'Portfolios',
                 items: this.getPortfoliosRoutes(),
             },

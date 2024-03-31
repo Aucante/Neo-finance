@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { TabViewModule } from "primeng/tabview";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { CurrencyPipe, DatePipe, LowerCasePipe, NgForOf, NgIf } from "@angular/common";
