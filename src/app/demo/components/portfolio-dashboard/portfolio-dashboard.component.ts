@@ -44,7 +44,6 @@ export class PortfolioDashboardComponent {
     }
 
     onTabChange(event: any) {
-        console.log(event.originalEvent.tabId)
         const portfolioId: number = event.index;
         const selectedPortfolio: Portfolio = this.portfolios[portfolioId];
 
