@@ -5,6 +5,7 @@ import { InputSwitchModule } from "primeng/inputswitch";
 import { ButtonModule } from "primeng/button";
 import { Configuration } from "../../api/configuration";
 import { ConfigurationService } from "../../service/configuration.service";
+import { CURRENCIES_CODE, SettingHelper } from "../../helper/setting-helper";
 
 @Component({
   selector: 'app-setting',
@@ -19,7 +20,9 @@ import { ConfigurationService } from "../../service/configuration.service";
 })
 export class SettingComponent {
 
-    configuration!: Configuration;
+    configuration: Configuration;
+
+    currencies!: string[];
 
     constructor(
         private configurationService: ConfigurationService
@@ -27,5 +30,10 @@ export class SettingComponent {
 
     ngOnInit() {
         this.configuration = this.configurationService.getUserConfiguration();
+        this.currencies = CURRENCIES_CODE;
+    }
+
+    getCurrencyIcon(currencyCode: string): string {
+        return SettingHelper.getCurrencyName(currencyCode);
     }
 }
