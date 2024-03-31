@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { TabViewModule } from "primeng/tabview";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
-import { CurrencyPipe, LowerCasePipe, NgForOf } from "@angular/common";
+import { CurrencyPipe, DatePipe, LowerCasePipe, NgForOf, NgIf } from "@angular/common";
 import { IconHelper } from "../../helper/icon-helper";
 import { TableModule } from "primeng/table";
 import { ChartModule } from "primeng/chart";
 import { ChartHelper } from "../../helper/chart-helper";
+import { DividerModule } from "primeng/divider";
+import { ScrollPanelModule } from "primeng/scrollpanel";
 
 @Component({
   selector: 'app-portfolio-dashboard',
@@ -16,7 +18,11 @@ import { ChartHelper } from "../../helper/chart-helper";
         CurrencyPipe,
         LowerCasePipe,
         TableModule,
-        ChartModule
+        ChartModule,
+        NgIf,
+        DatePipe,
+        DividerModule,
+        ScrollPanelModule
     ],
   templateUrl: './portfolio-dashboard.component.html',
 })
@@ -34,6 +40,7 @@ export class PortfolioDashboardComponent {
 
     ngOnInit() {
         this.portfolios = this.portfolioService.getAllPortfoliosByUser();
+        this.initChart(this.portfolios[0])
     }
 
     onTabChange(event: any) {

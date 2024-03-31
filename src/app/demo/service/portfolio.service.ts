@@ -34,7 +34,7 @@ export class PortfolioService {
     getAllPortfoliosByUser(): Portfolio[] {
         return [
             {
-                "id": 1,
+                "id": 4,
                 "name": "Cryptocurrencies Portfolio 1",
                 "type": "Cryptocurrency",
                 "value": 5000,
