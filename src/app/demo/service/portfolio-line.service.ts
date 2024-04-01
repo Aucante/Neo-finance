@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Asset } from "../api/asset";
+import { MOCK_PORTFOLIO_LINES } from "./mock/portfolio-line-mock";
 
 interface PortfolioLine {
     id: number;
@@ -13,31 +14,6 @@ export class PortfolioLineService {
 
     getPortfolioLines(): PortfolioLine[] {
 
-        return [
-            {
-                id: 1,
-                quantity: 10,
-                value: 1.50,
-                asset: {
-                    id: 1,
-                    name: 'Bitcoin',
-                    abbreviation: 'BTC',
-                    color: 'cyan',
-                    lastValue: 68000,
-                },
-            },
-            {
-                id: 2,
-                quantity: 1,
-                value: 400,
-                asset: {
-                    id: 3,
-                    name: 'Ripple',
-                    abbreviation: 'XRP',
-                    color: 'cyan',
-                    lastValue: 0.6,
-                },
-            },
-        ];
+        return MOCK_PORTFOLIO_LINES;
     }
 }

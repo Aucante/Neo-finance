@@ -10,8 +10,6 @@ export class IconsComponent implements OnInit {
 
     filteredIcons: any[] = [];
 
-    selectedIcon: any;
-
     constructor(private iconService: IconService) { }
 
     ngOnInit() {
