@@ -1,5 +1,9 @@
 import { Portfolio } from '../portfolio.service';
-import { MOCK_FINANCIAL_RESULTS } from "./financial-result-mock";
+import {
+    MOCK_FINANCIAL_RESULTS_1,
+    MOCK_FINANCIAL_RESULTS_2,
+    MOCK_FINANCIAL_RESULTS_3
+} from "./financial-result-mock";
 import { FinancialResult } from "../financial-result.service";
 
 export const MOCK_PORTFOLIOS: Portfolio[] = [
@@ -61,7 +65,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                 }
             }
         ],
-        "financialResults": getLastYearFinancialResultsByUser()
+        "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_1)
     },
     {
         "id": 2,
@@ -97,7 +101,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                 }
             }
         ],
-        "financialResults": getLastYearFinancialResultsByUser()
+        "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_2)
     },
     {
         "id": 3,
@@ -121,7 +125,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                 }
             }
         ],
-        "financialResults": getLastYearFinancialResultsByUser()
+        "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_3)
     }
 ];
 
@@ -183,7 +187,7 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
             }
         }
     ],
-    "financialResults": getLastYearFinancialResultsByUser()
+    "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_1)
 };
 
 export const MOCK_PORTFOLIO_2: Portfolio = {
@@ -220,7 +224,7 @@ export const MOCK_PORTFOLIO_2: Portfolio = {
             }
         }
     ],
-    "financialResults": getLastYearFinancialResultsByUser()
+    "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_2)
 };
 
 export const MOCK_PORTFOLIO_3: Portfolio = {
@@ -245,9 +249,9 @@ export const MOCK_PORTFOLIO_3: Portfolio = {
             }
         }
     ],
-    "financialResults": getLastYearFinancialResultsByUser()
+    "financialResults": getLastYearFinancialResultsByPortofolio(MOCK_FINANCIAL_RESULTS_3)
 };
 
-function getLastYearFinancialResultsByUser(): FinancialResult[] {
-    return MOCK_FINANCIAL_RESULTS.slice(0, 12);
+function getLastYearFinancialResultsByPortofolio(financialResults: FinancialResult[]): FinancialResult[] {
+    return financialResults.slice(0, 12);
 }
