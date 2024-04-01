@@ -1,15 +1,12 @@
 import { Injectable } from '@angular/core';
 
 import { Configuration } from "../api/configuration";
+import { MOCK_CONFIGURATION } from "./mock/configuration-mock";
 
 @Injectable()
 export class ConfigurationService {
 
     getUserConfiguration(): Configuration {
-        return {
-            id: 1,
-            currency: 'USD',
-            isLightMode: false
-        };
+        return MOCK_CONFIGURATION;
     }
 }
