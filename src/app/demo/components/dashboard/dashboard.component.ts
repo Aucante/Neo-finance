@@ -7,7 +7,7 @@ import {
     REQUEST_DIGITAL_CURRENCY_DAILY,
     RESPONSE_DATA_KEY, RESPONSE_VALUES_KEY
 } from "../../service/api/asset-api.service";
-import { Asset } from "../../service/portfolio.service";
+import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
 import { ChartData, ChartOptions } from "chart.js";
 

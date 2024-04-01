@@ -1,14 +1,7 @@
 import { Injectable } from '@angular/core';
 import { FinancialResult } from "./financial-result.service";
 import { MOCK_PORTFOLIO_1, MOCK_PORTFOLIO_2, MOCK_PORTFOLIO_3, MOCK_PORTFOLIOS } from "./mock/portfolio-mock";
-
-export interface Asset {
-    id: number;
-    name: string;
-    abbreviation: string;
-    color: string;
-    lastValue: number;
-}
+import { Asset } from "../api/asset";
 
 export interface PortfolioLine {
     id: number;
