@@ -39,8 +39,11 @@ export class PortfolioDashboardComponent {
     ) { }
 
     ngOnInit() {
-        this.portfolios = this.portfolioService.getAllPortfoliosByUser();
-        this.initChart(this.portfolios[0])
+        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
+            this.portfolios = portfolioList;
+            console.log(this.portfolios);
+            this.initChart(this.portfolios[0]);
+        });
     }
 
     onTabChange(event: any) {

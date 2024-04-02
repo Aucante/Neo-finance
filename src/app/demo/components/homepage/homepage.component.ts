@@ -39,7 +39,7 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
 
         this.assets = this.assetService.getAssets();
-        this.portfolios = this.portfolioService.getAllPortfoliosByUser();
+        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => this.portfolios === portfolioList);
     }
 
     ngOnDestroy() {

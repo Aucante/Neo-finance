@@ -32,10 +32,10 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Settings', icon: 'pi pi-fw pi-home', routerLink: ['/settings'] },
                 ]
             },
-            {
-                label: 'Portfolios',
-                items: this.getPortfoliosRoutes(),
-            },
+            // {
+            //     label: 'Portfolios',
+            //     items: this.getPortfoliosRoutes(),
+            // },
             {
                 label: 'UI Components',
                 items: [
@@ -161,11 +161,11 @@ export class AppMenuComponent implements OnInit {
         ];
     }
 
-    private getPortfoliosRoutes() {
-        return this.portfolioService.getAllPortfoliosByUser().map(portfolio => {
-            return {
-                label: portfolio.name, icon: IconHelper.getIcon(portfolio.type), routerLink: [`/portfolio/${portfolio.id}`]
-            };
-        });
-    }
+    // private getPortfoliosRoutes() {
+    //     return this.portfolioService.getAllPortfoliosByUser().map(portfolio => {
+    //         return {
+    //             label: portfolio.name, icon: IconHelper.getIcon(portfolio.type), routerLink: [`/portfolio/${portfolio.id}`]
+    //         };
+    //     });
+    // }
 }

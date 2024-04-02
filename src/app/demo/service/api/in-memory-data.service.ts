@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService} from "angular-in-memory-web-api";
 import { MOCK_ASSETS } from "../mock/asset-mock";
+import { MOCK_PORTFOLIOS } from "../mock/portfolio-mock";
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class InMemoryDataService implements InMemoryDbService{
     createDb() {
 
       const assets = MOCK_ASSETS;
+      const portfolios = MOCK_PORTFOLIOS;
 
-      return { assets };
+      return { assets, portfolios };
     }
 }

@@ -7,8 +7,7 @@ import { MOCK_ASSETS } from "./mock/asset-mock";
 @Injectable()
 export class AssetService {
 
-    constructor(private httpClient: HttpClient) {
-    }
+    constructor(private httpClient: HttpClient) { }
     getAssets(): Asset[] {
         return MOCK_ASSETS;
     }
@@ -17,8 +16,7 @@ export class AssetService {
         return this.httpClient.get<Asset[]>('api/assets')
             .pipe(
                 tap((response) => console.table(response)),
-                catchError((error) => {
-                    console.log(error);
+                catchError(() => {
                     return of([]);
                 })
             )

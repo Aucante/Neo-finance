@@ -44,7 +44,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
         this.assetService.getAssetsTest().subscribe(assetList => {
             this.assets = assetList;
-            console.log(this.assets[0]);
             this.getAssetData(this.assets[0]);
         });
     }
