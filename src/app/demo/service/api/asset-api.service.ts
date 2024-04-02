@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, tap, catchError, of } from 'rxjs';
 import { config } from "../../../../environments/config";
 
 export const REQUEST_DIGITAL_CURRENCY_DAILY = 'DIGITAL_CURRENCY_DAILY';
+export const REQUEST_DIGITAL_CURRENCY_MONTHLY = 'DIGITAL_CURRENCY_MONTHLY';
 export const MARKET_USD = 'USD';
 export const RESPONSE_DATA_KEY = 'Time Series (Digital Currency Daily)';
 export const RESPONSE_VALUES_KEY = '1a. open (USD)';

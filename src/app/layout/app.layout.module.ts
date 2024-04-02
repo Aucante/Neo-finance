@@ -19,6 +19,8 @@ import { AppSidebarComponent } from "./app.sidebar.component";
 import { AppLayoutComponent } from "./app.layout.component";
 import { ScrollPanelModule } from "primeng/scrollpanel";
 import { ScrollTopModule } from "primeng/scrolltop";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "../demo/service/api/in-memory-data.service";
 
 @NgModule({
     declarations: [
@@ -33,6 +35,7 @@ import { ScrollTopModule } from "primeng/scrolltop";
         BrowserModule,
         FormsModule,
         HttpClientModule,
+        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
         BrowserAnimationsModule,
         InputTextModule,
         SidebarModule,

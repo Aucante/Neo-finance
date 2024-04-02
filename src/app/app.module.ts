@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PathLocationStrategy, LocationStrategy } from '@angular/common';
+
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppLayoutModule } from './layout/app.layout.module';

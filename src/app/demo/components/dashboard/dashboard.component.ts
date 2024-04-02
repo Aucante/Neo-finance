@@ -4,7 +4,7 @@ import { ChartHelper } from "../../helper/chart-helper";
 import {
     AssetApiService,
     MARKET_USD,
-    REQUEST_DIGITAL_CURRENCY_DAILY,
+    REQUEST_DIGITAL_CURRENCY_DAILY, REQUEST_DIGITAL_CURRENCY_MONTHLY,
     RESPONSE_DATA_KEY, RESPONSE_VALUES_KEY
 } from "../../service/api/asset-api.service";
 import { Asset } from "../../api/asset";
@@ -39,8 +39,14 @@ export class DashboardComponent implements OnInit, OnDestroy {
     ) { }
 
     ngOnInit() {
-        this.assets = this.assetService.getAssets();
-        this.getAssetData(this.assets[0]);
+        // this.assets = this.assetService.getAssets();
+        // this.getAssetData(this.assets[0]);
+
+        this.assetService.getAssetsTest().subscribe(assetList => {
+            this.assets = assetList;
+            console.log(this.assets[0]);
+            this.getAssetData(this.assets[0]);
+        });
     }
 
     getAssetData(asset: Asset): any {
