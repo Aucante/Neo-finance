@@ -13,7 +13,6 @@ interface PortfolioLine {
 export class PortfolioLineService {
 
     getPortfolioLines(): PortfolioLine[] {
-
         return MOCK_PORTFOLIO_LINES;
     }
 }
