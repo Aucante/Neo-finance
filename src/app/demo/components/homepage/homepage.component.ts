@@ -33,13 +33,15 @@ export class HomepageComponent implements OnInit, OnDestroy{
     ngOnInit() {
         this.financialResults = this.financialResultService.getLastYearFinancialResultsByUser();
 
-        const chartLabels = this.financialResults.map(financialResult => financialResult.month);
-        const chartDatas = this.financialResults.map(financialResult => financialResult.value);
+        const chartLabels: string[] = this.financialResults.map(financialResult => financialResult.month);
+        const chartDatas: number[] = this.financialResults.map(financialResult => financialResult.value);
         this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
         this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
 
         this.assets = this.assetService.getAssets();
-        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => this.portfolios === portfolioList);
+        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
+            this.portfolios = portfolioList
+        });
     }
 
     ngOnDestroy() {

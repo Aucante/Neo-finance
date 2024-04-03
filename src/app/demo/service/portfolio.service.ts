@@ -36,7 +36,8 @@ export class PortfolioService {
                 catchError(() => {
                     return of([]);
                 })
-            )    }
+            )
+    }
 
     getPortfolio1(): Portfolio {
         return MOCK_PORTFOLIO_1;
