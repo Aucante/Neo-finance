@@ -57,6 +57,49 @@ export class ChartHelper {
         return [chartOptions, chartData];
     }
 
+    static initBarChart(): [chartOptions: any, chartData: any] {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+
+        const barData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [
+                {
+                    label: 'My First dataset',
+                    backgroundColor: documentStyle.getPropertyValue('--primary-500'),
+                    borderColor: documentStyle.getPropertyValue('--primary-500'),
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                }
+            ]
+        };
+
+        const barOptions = {
+            plugins: {
+                legend: {
+                    labels: {
+                        fontColor: textColor
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: textColor,
+                        font: {
+                            weight: 500
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    }
+                },
+            }
+        };
+
+        return [barOptions, barData];
+    }
+
     static formatDate(dateString: string): string {
         const months = [
             "Jan", "Feb", "Mar", "Apr", "May", "Jun",

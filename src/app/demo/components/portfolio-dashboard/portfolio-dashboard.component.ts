@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { TabViewModule } from "primeng/tabview";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { CurrencyPipe, DatePipe, LowerCasePipe, NgForOf, NgIf } from "@angular/common";
@@ -8,6 +8,8 @@ import { ChartModule } from "primeng/chart";
 import { ChartHelper } from "../../helper/chart-helper";
 import { DividerModule } from "primeng/divider";
 import { ScrollPanelModule } from "primeng/scrollpanel";
+import { LayoutService } from "../../../layout/service/app.layout.service";
+import { debounceTime, Subscription } from "rxjs";
 
 @Component({
   selector: 'app-portfolio-dashboard',
@@ -26,7 +28,7 @@ import { ScrollPanelModule } from "primeng/scrollpanel";
     ],
   templateUrl: './portfolio-dashboard.component.html',
 })
-export class PortfolioDashboardComponent {
+export class PortfolioDashboardComponent implements OnInit, OnDestroy {
 
     portfolios!: Portfolio[];
 
@@ -34,15 +36,18 @@ export class PortfolioDashboardComponent {
 
     chartOptions: any;
 
+    barData: any;
+
+    barOptions: any;
+
     constructor(
-        private portfolioService: PortfolioService
+        private portfolioService: PortfolioService,
     ) { }
 
     ngOnInit() {
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
             this.portfolios = portfolioList;
-            console.log(this.portfolios);
-            this.initChart(this.portfolios[0]);
+            this.initCharts(this.portfolios[0]);
         });
     }
 
@@ -51,16 +56,21 @@ export class PortfolioDashboardComponent {
         const selectedPortfolio: Portfolio = this.portfolios[portfolioId];
 
         if (selectedPortfolio) {
-            this.initChart(selectedPortfolio);
+            this.initCharts(selectedPortfolio);
         }
     }
 
-    initChart(portfolio: Portfolio) {
+    initCharts(portfolio: Portfolio) {
         const chartLabels = portfolio.financialResults.map(financialResult => financialResult.month);
         const chartDatas = portfolio.financialResults.map(financialResult => financialResult.value);
 
-        this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
-        this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+        const chartResults = ChartHelper.initChart(chartLabels, chartDatas);
+        const barChartResults = ChartHelper.initBarChart();
+
+        this.chartOptions = chartResults[0];
+        this.chartData = chartResults[1];
+        this.barOptions = barChartResults[0];
+        this.barData = barChartResults[1];
     }
 
     getIconByPortfolio(type: string): string {
