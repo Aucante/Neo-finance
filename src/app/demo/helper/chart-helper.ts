@@ -2,7 +2,6 @@ export class ChartHelper {
 
     static initChart(labels: string[], datas: number[]): [chartOptions: any, chartData: any] {
         const documentStyle = getComputedStyle(document.documentElement);
-        const textColor = documentStyle.getPropertyValue('--text-color');
         const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
         const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
 
