@@ -99,6 +99,44 @@ export class ChartHelper {
         return [barOptions, barData];
     }
 
+    static initPieChart(labels: string[], datas: number[]): [chartOptions: any, chartData: any] {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+
+        const pieData = {
+            labels: labels,
+            datasets: [
+                {
+                    data: datas,
+                    backgroundColor: [
+                        documentStyle.getPropertyValue('--primary-600'),
+                        documentStyle.getPropertyValue('--primary-400'),
+                        documentStyle.getPropertyValue('--primary-200')
+                    ],
+                    hoverBackgroundColor: [
+                        documentStyle.getPropertyValue('--primary-100'),
+                        documentStyle.getPropertyValue('--primary-100'),
+                        documentStyle.getPropertyValue('--primary-100')
+                    ]
+                }]
+        };
+
+        const pieOptions = {
+            plugins: {
+                legend: {
+                    labels: {
+                        usePointStyle: true,
+                        color: textColor
+                    }
+                }
+            }
+        };
+
+        return [pieOptions, pieData];
+    }
+
+
+
     static formatDate(dateString: string): string {
         const months = [
             "Jan", "Feb", "Mar", "Apr", "May", "Jun",

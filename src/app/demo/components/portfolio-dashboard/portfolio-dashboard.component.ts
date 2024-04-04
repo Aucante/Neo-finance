@@ -10,6 +10,7 @@ import { DividerModule } from "primeng/divider";
 import { ScrollPanelModule } from "primeng/scrollpanel";
 import { LayoutService } from "../../../layout/service/app.layout.service";
 import { debounceTime, Subscription } from "rxjs";
+import { ChartData, ChartOptions } from "chart.js";
 
 @Component({
   selector: 'app-portfolio-dashboard',
@@ -61,11 +62,10 @@ export class PortfolioDashboardComponent implements OnInit, OnDestroy {
     }
 
     initCharts(portfolio: Portfolio) {
-        const chartLabels = portfolio.financialResults.map(financialResult => financialResult.month);
-        const chartDatas = portfolio.financialResults.map(financialResult => financialResult.value);
-
-        const chartResults = ChartHelper.initChart(chartLabels, chartDatas);
-        const barChartResults = ChartHelper.initBarChart();
+        const chartLabels: string[] = portfolio.financialResults.map(financialResult => financialResult.month);
+        const chartDatas: number[] = portfolio.financialResults.map(financialResult => financialResult.value);
+        const chartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initChart(chartLabels, chartDatas);
+        const barChartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initBarChart();
 
         this.chartOptions = chartResults[0];
         this.chartData = chartResults[1];

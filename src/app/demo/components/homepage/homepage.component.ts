@@ -13,7 +13,7 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
     assets!: Asset[];
 
-    portfolios!: Portfolio[];
+    portfolios: Portfolio[] = [];
 
     financialResults!: FinancialResult[];
 
@@ -22,6 +22,11 @@ export class HomepageComponent implements OnInit, OnDestroy{
     chartData: any;
 
     chartOptions: any;
+
+    pieChartData: any;
+
+    pieChartOptions: any;
+
 
     subscription!: Subscription;
     constructor(
@@ -35,12 +40,17 @@ export class HomepageComponent implements OnInit, OnDestroy{
 
         const chartLabels: string[] = this.financialResults.map(financialResult => financialResult.month);
         const chartDatas: number[] = this.financialResults.map(financialResult => financialResult.value);
-        this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
-        this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+        const chartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initChart(chartLabels, chartDatas);
+
+        this.chartOptions = chartResults[0];
+        this.chartData = chartResults[1];
 
         this.assets = this.assetService.getAssets();
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
-            this.portfolios = portfolioList
+            this.portfolios = portfolioList;
+            const pieChartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initPieChart(chartLabels, chartDatas);
+            this.pieChartOptions = pieChartResults[0];
+            this.pieChartData = pieChartResults[1];
         });
     }
 
