@@ -109,9 +109,10 @@ export class ChartHelper {
                 {
                     data: datas,
                     backgroundColor: [
-                        documentStyle.getPropertyValue('--primary-600'),
-                        documentStyle.getPropertyValue('--primary-400'),
-                        documentStyle.getPropertyValue('--primary-200')
+                        documentStyle.getPropertyValue('--primary-900'),
+                        documentStyle.getPropertyValue('--primary-700'),
+                        documentStyle.getPropertyValue('--primary-500'),
+                        documentStyle.getPropertyValue('--primary-300')
                     ],
                     hoverBackgroundColor: [
                         documentStyle.getPropertyValue('--primary-100'),
@@ -122,14 +123,35 @@ export class ChartHelper {
         };
 
         const pieOptions = {
+            cutout: '70%',
             plugins: {
                 legend: {
+                    display: true,
                     labels: {
                         usePointStyle: true,
                         color: textColor
                     }
-                }
-            }
+                },
+                tooltip: {
+                    displayColors: false,
+                    callbacks: {
+                        label: function(context){
+                            var data = context.dataset.data,
+                                label = context.label,
+                                currentValue = context.raw,
+                                total: number = 0;
+
+                            for( var i: number = 0; i < data.length; i++ ){
+                                total += data[i];
+                            }
+                            var percentage: number = parseFloat((currentValue/total*100).toFixed(1));
+
+                            return label + ": " + percentage + '%';
+                        }
+                    }
+                },
+            },
+
         };
 
         return [pieOptions, pieData];
