@@ -32,10 +32,14 @@ export class AppMenuComponent implements OnInit {
                     { label: 'Settings', icon: 'pi pi-fw pi-home', routerLink: ['/settings'] },
                 ]
             },
-            // {
-            //     label: 'Portfolios',
-            //     items: this.getPortfoliosRoutes(),
-            // },
+            {
+                label: 'Portfolios',
+                items: [
+                    { label: 'Create', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/create'] },
+                    { label: 'Edit', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/edit'] },
+                    { label: 'Delete', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/delete'] },
+                ],
+            },
             {
                 label: 'UI Components',
                 items: [
