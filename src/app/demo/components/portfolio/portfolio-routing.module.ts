@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PortfolioComponent } from './portfolio.component';
-import { PortfolioService } from "../../service/portfolio.service";
 import { PortfolioCreateComponent } from "./portfolio-create/portfolio-create.component";
 import { PortfolioEditComponent } from "./portfolio-edit/portfolio-edit.component";
 import { PortfolioDeleteComponent } from "./portfolio-delete/portfolio-delete.component";
+import { PortfolioLineFormComponent } from "./form/portfolio-line-form.component";
+import { PortfolioFormComponent } from "./form/portfolio-form.component";
+import { ConfirmationComponent } from "./form/confirmation.component";
 
 
 @NgModule({
@@ -15,20 +17,19 @@ import { PortfolioDeleteComponent } from "./portfolio-delete/portfolio-delete.co
 })
 export class PortfolioRoutingModule {
 
-    constructor(private portfolioService: PortfolioService) {}
-
     private static createRoutes(): Routes {
-        // const portfolios = portfolioService.getAllPortfoliosByUser();
-        //
-        // portfolios.forEach(portfolio => {
-        //     routes.push({ path: ':id', component: PortfolioComponent });
-        // });
-
         return [
-            { path: '', component: PortfolioComponent },
-            { path: 'create', component: PortfolioCreateComponent },
-            { path: 'edit', component: PortfolioEditComponent },
-            { path: 'delete', component: PortfolioDeleteComponent },
+            {
+                path: '', component: PortfolioComponent, children: [
+                    { path: '', redirectTo: 'personal', pathMatch: 'full' },
+                    { path: 'create', component: PortfolioCreateComponent },
+                    { path: 'edit', component: PortfolioEditComponent },
+                    { path: 'delete', component: PortfolioDeleteComponent },
+                    { path: 'add-portfolio-line', component: PortfolioLineFormComponent },
+                    { path: 'add-portfolio', component: PortfolioFormComponent },
+                    { path: 'confirmation', component: ConfirmationComponent },
+                ]
+            }
         ];
     }
 }

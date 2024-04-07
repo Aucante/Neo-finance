@@ -12,6 +12,8 @@ import { PortfolioRoutingModule } from "./portfolio-routing.module";
 import { RatingModule } from "primeng/rating";
 import { RippleModule } from "primeng/ripple";
 import { ToastModule } from "primeng/toast";
+import { StepsModule } from "primeng/steps";
+import { TabMenuModule } from "primeng/tabmenu";
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { ToastModule } from "primeng/toast";
         PortfolioRoutingModule,
         RatingModule,
         RippleModule,
-        ToastModule
+        ToastModule,
+        StepsModule,
+        TabMenuModule
     ],
     declarations: [
         PortfolioComponent,

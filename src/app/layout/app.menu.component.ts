@@ -13,7 +13,6 @@ export class AppMenuComponent implements OnInit {
 
     constructor(
         public layoutService: LayoutService,
-        private portfolioService: PortfolioService
     ) { }
 
     ngOnInit() {

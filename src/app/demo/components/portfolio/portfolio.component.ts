@@ -3,13 +3,14 @@ import { Subscription } from "rxjs";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { ActivatedRoute } from "@angular/router";
 import { ChartHelper } from "../../helper/chart-helper";
+import { MenuItem } from "primeng/api";
 
 interface expandedRows {
     [key: string]: boolean;
 }
 
 @Component({
-    templateUrl: './portfolio.component.html'
+    templateUrl: './portfolio.component.html',
 })
 export class PortfolioComponent implements OnInit, OnDestroy{
 
@@ -27,12 +28,22 @@ export class PortfolioComponent implements OnInit, OnDestroy{
 
     subscription!: Subscription;
 
+    routeItems: MenuItem[] = [];
+
+
     constructor(
         private portfolioService: PortfolioService,
         private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
+
+        this.routeItems = [
+            { label: 'Portfolio Line', routerLink: 'add-portfolio-line' },
+            { label: 'Portfolio', routerLink: 'add-portfolio' },
+            { label: 'Confirmation', routerLink: 'confirmation' },
+        ];
+
         this.route.paramMap.subscribe(params => {
             this.portfolioId = params.get('id');
 
