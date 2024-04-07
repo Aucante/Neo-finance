@@ -34,9 +34,7 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Portfolios',
                 items: [
-                    { label: 'Create', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/create'] },
-                    { label: 'Edit', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/edit'] },
-                    { label: 'Delete', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/delete'] },
+                    { label: 'Create', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio-line'] },
                 ],
             },
             {

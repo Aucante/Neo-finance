@@ -14,6 +14,8 @@ import { RippleModule } from "primeng/ripple";
 import { ToastModule } from "primeng/toast";
 import { StepsModule } from "primeng/steps";
 import { TabMenuModule } from "primeng/tabmenu";
+import { PortfolioLineFormComponent } from "./form/portfolio-line-form.component";
+import { ChipsModule } from "primeng/chips";
 
 
 @NgModule({
@@ -31,10 +33,12 @@ import { TabMenuModule } from "primeng/tabmenu";
         RippleModule,
         ToastModule,
         StepsModule,
-        TabMenuModule
+        TabMenuModule,
+        ChipsModule
     ],
     declarations: [
         PortfolioComponent,
+        PortfolioLineFormComponent
     ]
 })
 export class PortfolioModule { }
