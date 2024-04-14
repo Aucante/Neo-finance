@@ -8,7 +8,6 @@ import { HttpClient } from "@angular/common/http";
 export interface PortfolioLine {
     id: number;
     quantity: number;
-    value: number;
     asset: Asset;
 }
 

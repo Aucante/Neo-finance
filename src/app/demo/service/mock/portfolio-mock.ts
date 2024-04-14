@@ -19,7 +19,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 1,
                 "quantity": 10,
-                "value": 1.50,
                 "asset": {
                     "id": 1,
                     "name": "Bitcoin",
@@ -31,7 +30,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 2,
                 "quantity": 5,
-                "value": 0.80,
                 "asset": {
                     "id": 2,
                     "name": "Ethereum",
@@ -43,7 +41,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 6,
                 "quantity": 5,
-                "value": 0.80,
                 "asset": {
                     "id": 9,
                     "name": "Cardano",
@@ -55,7 +52,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 7,
                 "quantity": 14,
-                "value": 8,
                 "asset": {
                     "id": 6,
                     "name": "Polkadot",
@@ -79,7 +75,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 3,
                 "quantity": 20,
-                "value": 5.00,
                 "asset": {
                     "id": 3,
                     "name": "Apple Inc.",
@@ -91,7 +86,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 4,
                 "quantity": 15,
-                "value": 3.50,
                 "asset": {
                     "id": 4,
                     "name": "Microsoft Corporation",
@@ -115,7 +109,6 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
             {
                 "id": 5,
                 "quantity": 1,
-                "value": 100000,
                 "asset": {
                     "id": 4,
                     "name": "Real Estate - Nice",
@@ -141,7 +134,6 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
         {
             "id": 1,
             "quantity": 10,
-            "value": 1.50,
             "asset": {
                 "id": 1,
                 "name": "Bitcoin",
@@ -153,7 +145,6 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
         {
             "id": 2,
             "quantity": 5,
-            "value": 0.80,
             "asset": {
                 "id": 2,
                 "name": "Ethereum",
@@ -165,7 +156,6 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
         {
             "id": 6,
             "quantity": 5,
-            "value": 0.80,
             "asset": {
                 "id": 9,
                 "name": "Cardano",
@@ -177,7 +167,6 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
         {
             "id": 7,
             "quantity": 14,
-            "value": 8,
             "asset": {
                 "id": 6,
                 "name": "Polkadot",
@@ -202,7 +191,6 @@ export const MOCK_PORTFOLIO_2: Portfolio = {
         {
             "id": 3,
             "quantity": 20,
-            "value": 5.00,
             "asset": {
                 "id": 3,
                 "name": "Apple Inc.",
@@ -214,7 +202,6 @@ export const MOCK_PORTFOLIO_2: Portfolio = {
         {
             "id": 4,
             "quantity": 15,
-            "value": 3.50,
             "asset": {
                 "id": 4,
                 "name": "Microsoft Corporation",
@@ -239,7 +226,6 @@ export const MOCK_PORTFOLIO_3: Portfolio = {
         {
             "id": 5,
             "quantity": 1,
-            "value": 100000,
             "asset": {
                 "id": 4,
                 "name": "Real Estate - Nice",
