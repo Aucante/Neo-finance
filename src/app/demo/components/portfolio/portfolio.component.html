@@ -14,38 +14,4 @@
             </div>
         </div>
     </div>
-
-
-    <div class="col-12">
-        <div class="card">
-            <h5>FINANCIAL CHART - {{ portfolio.value | currency:'USD' }}</h5>
-            <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
-        </div>
-    </div>
-
-    <div class="col-12">
-        <div class="card">
-            <h5>ASSETS</h5>
-            <p-table [value]="portfolio.portfolioLines" dataKey="name" responsiveLayout="scroll">
-                <ng-template pTemplate="header">
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                </ng-template>
-                <ng-template pTemplate="body" let-portfolioLine>
-                    <tr>
-                        <td><img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" [alt]="portfolio.name" height="25" width="25" style="border-radius: 50%" class="shadow-4" /></td>
-                        <td>{{portfolioLine.asset.name}}</td>
-                        <td>{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
-                        <td>{{portfolioLine.quantity}}</td>
-                        <td>{{portfolioLine.value | currency:'USD'}}</td>
-                    </tr>
-                </ng-template>
-            </p-table>
-        </div>
-    </div>
 </div>
