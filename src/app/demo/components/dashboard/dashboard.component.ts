@@ -10,6 +10,7 @@ import {
 import { Asset } from "../../api/asset";
 import { AssetService } from "../../service/asset.service";
 import { ChartData, ChartOptions } from "chart.js";
+import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 
 interface responseAssetApiData {
     date: string,
@@ -31,20 +32,24 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     assets!: Asset[];
 
+    portfolios: Portfolio[] = [];
+
     private assetDataCache: Map<string, any> = new Map<string, any>();
 
     constructor(
         private assetApiService: AssetApiService,
+        private portfolioService: PortfolioService,
         private assetService: AssetService,
     ) { }
 
     ngOnInit() {
-        // this.assets = this.assetService.getAssets();
-        // this.getAssetData(this.assets[0]);
-
         this.assetService.getAssetsTest().subscribe(assetList => {
             this.assets = assetList;
             this.getAssetData(this.assets[0]);
+        });
+
+        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
+            this.portfolios = portfolioList;
         });
     }
 
