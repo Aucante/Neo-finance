@@ -1,14 +1,16 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PORTFOLIO_TYPES } from "../../constants/app.constants";
 
 @Component({
-    template: `
-		<div class="flex flex-column align-items-center justify-content-center h-full py-5 px-3">
-			<i class="pi pi-fw pi-user mr-2 text-2xl"></i>
-			<p class="mt-5 text-center text-lg">Test Component Content via Child Route</p>
-		</div>
-  	`
+    templateUrl: './portfolio-form.component.html'
 })
-export class PortfolioFormComponent {
+export class PortfolioFormComponent implements OnInit{
 
-    constructor() { }
+    cities: string[] | undefined;
+
+    selectedCity: string | undefined;
+
+    ngOnInit() {
+        this.cities = PORTFOLIO_TYPES;
+    }
 }

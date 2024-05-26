@@ -39,9 +39,9 @@ export class PortfolioComponent implements OnInit, OnDestroy{
     ngOnInit() {
 
         this.routeItems = [
-            { label: 'Portfolio Line', routerLink: 'add-portfolio-line' },
-            { label: 'Portfolio', routerLink: 'add-portfolio' },
-            { label: 'Confirmation', routerLink: 'confirmation' },
+            { label: 'New', routerLink: 'add-portfolio' },
+            { label: 'Add line', routerLink: 'add-portfolio-line' },
+            { label: 'Edit', routerLink: 'edit-portfolio' },
         ];
 
         this.route.paramMap.subscribe(params => {

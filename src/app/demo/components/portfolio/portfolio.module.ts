@@ -16,6 +16,8 @@ import { StepsModule } from "primeng/steps";
 import { TabMenuModule } from "primeng/tabmenu";
 import { PortfolioLineFormComponent } from "./form/portfolio-line-form.component";
 import { ChipsModule } from "primeng/chips";
+import { PortfolioFormComponent } from "./form/portfolio-form.component";
+import { DropdownModule } from "primeng/dropdown";
 
 
 @NgModule({
@@ -34,11 +36,13 @@ import { ChipsModule } from "primeng/chips";
         ToastModule,
         StepsModule,
         TabMenuModule,
-        ChipsModule
+        ChipsModule,
+        DropdownModule
     ],
     declarations: [
         PortfolioComponent,
-        PortfolioLineFormComponent
+        PortfolioLineFormComponent,
+        PortfolioFormComponent
     ]
 })
 export class PortfolioModule { }
