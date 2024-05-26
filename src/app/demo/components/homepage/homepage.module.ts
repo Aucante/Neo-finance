@@ -9,7 +9,7 @@ import { TableModule } from "primeng/table";
 import { StyleClassModule } from "primeng/styleclass";
 import { PanelMenuModule } from "primeng/panelmenu";
 import { ButtonModule } from "primeng/button";
-import { TotalValuePipe } from "../../pipe/total-value.pipe";
+import { SharedModule } from '../../shared/shared.module'
 
 
 @NgModule({
@@ -22,11 +22,11 @@ import { TotalValuePipe } from "../../pipe/total-value.pipe";
         StyleClassModule,
         PanelMenuModule,
         ButtonModule,
-        HomepageRoutingModule
+        HomepageRoutingModule,
+        SharedModule
     ],
     declarations: [
-        HomepageComponent,
-        TotalValuePipe
+        HomepageComponent
     ]
 })
 export class HomepageModule { }
