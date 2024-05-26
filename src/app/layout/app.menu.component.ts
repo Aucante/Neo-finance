@@ -32,9 +32,9 @@ export class AppMenuComponent implements OnInit {
                 ]
             },
             {
-                label: 'Portfolios',
+                label: 'Control Panel',
                 items: [
-                    { label: 'Create', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio-line'] },
+                    { label: 'Portfolio Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio-line'] },
                 ],
             },
             {

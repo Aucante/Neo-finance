@@ -14,13 +14,7 @@ interface expandedRows {
 })
 export class PortfolioComponent implements OnInit, OnDestroy{
 
-    portfolioId: string;
-
-    portfolio!: Portfolio;
-
-    chartData: any;
-
-    chartOptions: any;
+    portfolios!: Portfolio[];
 
     expandedRows: expandedRows = {};
 
@@ -33,7 +27,6 @@ export class PortfolioComponent implements OnInit, OnDestroy{
 
     constructor(
         private portfolioService: PortfolioService,
-        private route: ActivatedRoute
     ) { }
 
     ngOnInit() {
@@ -45,34 +38,10 @@ export class PortfolioComponent implements OnInit, OnDestroy{
             { label: 'Delete', routerLink: 'delete-portfolio' },
         ];
 
-        this.route.paramMap.subscribe(params => {
-            this.portfolioId = params.get('id');
-
-            if ('1' === this.portfolioId) {
-                this.portfolio = this.portfolioService.getPortfolio1();
-            } else if ('2' === this.portfolioId) {
-                this.portfolio = this.portfolioService.getPortfolio2();
-            } else {
-                this.portfolio = this.portfolioService.getPortfolio3();
-            }
-
-            const chartLabels = this.portfolio.financialResults.map(financialResult => financialResult.month);
-            const chartDatas = this.portfolio.financialResults.map(financialResult => financialResult.value);
-
-            this.chartOptions = ChartHelper.initChart(chartLabels, chartDatas)[0];
-            this.chartData = ChartHelper.initChart(chartLabels, chartDatas)[1];
+        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
+            this.portfolios = portfolioList;
         });
 
-
-    }
-
-    expandAll() {
-        if (!this.isExpanded) {
-            this.portfolio.portfolioLines.forEach(portfolioLine => portfolioLine && portfolioLine.id ? this.expandedRows[portfolioLine.id] = true : '');
-        } else {
-            this.expandedRows = {};
-        }
-        this.isExpanded = !this.isExpanded;
     }
 
     ngOnDestroy() {
