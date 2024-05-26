@@ -16,7 +16,6 @@ import { StepsModule } from "primeng/steps";
 import { TabMenuModule } from "primeng/tabmenu";
 import { PortfolioLineFormComponent } from "./form/portfolio-line-form.component";
 import { ChipsModule } from "primeng/chips";
-import { PortfolioFormComponent } from "./form/portfolio-form.component";
 import { DropdownModule } from "primeng/dropdown";
 
 
@@ -41,8 +40,7 @@ import { DropdownModule } from "primeng/dropdown";
     ],
     declarations: [
         PortfolioComponent,
-        PortfolioLineFormComponent,
-        PortfolioFormComponent
+        PortfolioLineFormComponent
     ]
 })
 export class PortfolioModule { }
