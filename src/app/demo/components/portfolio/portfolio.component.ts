@@ -42,6 +42,7 @@ export class PortfolioComponent implements OnInit, OnDestroy{
             { label: 'New', routerLink: 'add-portfolio' },
             { label: 'Add line', routerLink: 'add-portfolio-line' },
             { label: 'Edit', routerLink: 'edit-portfolio' },
+            { label: 'Delete', routerLink: 'delete-portfolio' },
         ];
 
         this.route.paramMap.subscribe(params => {

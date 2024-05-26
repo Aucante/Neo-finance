@@ -26,6 +26,7 @@ export class PortfolioRoutingModule {
                     { path: 'add-portfolio-line', component: PortfolioLineFormComponent },
                     { path: 'add-portfolio', component: PortfolioCreateComponent },
                     { path: 'edit-portfolio', component: PortfolioEditComponent },
+                    { path: 'delete-portfolio', component: PortfolioDeleteComponent },
                     { path: 'confirmation', component: ConfirmationComponent },
                 ]
             }
