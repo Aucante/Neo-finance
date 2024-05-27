@@ -8,11 +8,8 @@ import { MOCK_ASSETS } from "./mock/asset-mock";
 export class AssetService {
 
     constructor(private httpClient: HttpClient) { }
-    getAssets(): Asset[] {
-        return MOCK_ASSETS;
-    }
 
-    getAssetsTest(): Observable<Asset[]> {
+    getAssets(): Observable<Asset[]> {
         return this.httpClient.get<Asset[]>('api/assets')
             .pipe(
                 tap((response) => console.table(response)),

@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ButtonModule } from "primeng/button";
 import { DropdownModule } from "primeng/dropdown";
 import { InputTextModule } from "primeng/inputtext";
-import { Portfolio, PortfolioService } from "../../../service/portfolio.service";
 import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
+import { AssetService } from "../../../service/asset.service";
+import { Asset } from "../../../api/asset";
 
 @Component({
-  selector: 'app-portfolio-edit',
-  standalone: true,
+    selector: 'app-portfolio-edit',
+    standalone: true,
     imports: [
         ButtonModule,
         DropdownModule,
@@ -16,21 +17,21 @@ import { NgIf } from "@angular/common";
         FormsModule,
         NgIf
     ],
-  templateUrl: './portfolio-edit.component.html',
+    templateUrl: './asset-edit.component.html',
 })
-export class PortfolioEditComponent implements OnInit {
+export class AssetEditComponent implements OnInit {
 
-    portfolios: Portfolio[];
+    assets: Asset[];
 
-    selectedPortfolio: Portfolio | undefined;
+    selectedAsset: Asset | undefined;
 
     constructor(
-        private portfolioService: PortfolioService
+        private assetService: AssetService
     ) { }
 
     ngOnInit() {
-        this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
-            this.portfolios = portfolioList;
+        this.assetService.getAssets().subscribe(assetList => {
+            this.assets = assetList;
         });
     }
 
