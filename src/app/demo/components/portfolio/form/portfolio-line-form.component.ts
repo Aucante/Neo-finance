@@ -4,7 +4,7 @@ import { Portfolio, PortfolioService } from "../../../service/portfolio.service"
 @Component({
     templateUrl: './portfolio-line-form.component.html'
 })
-export class PortfolioLineFormComponent implements OnInit{
+export class PortfolioLineFormComponent implements OnInit {
 
     portfolios: Portfolio[];
 

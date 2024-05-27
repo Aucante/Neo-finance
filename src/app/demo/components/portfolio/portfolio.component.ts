@@ -1,24 +1,14 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from "rxjs";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
-import { ActivatedRoute } from "@angular/router";
-import { ChartHelper } from "../../helper/chart-helper";
 import { MenuItem } from "primeng/api";
-
-interface expandedRows {
-    [key: string]: boolean;
-}
 
 @Component({
     templateUrl: './portfolio.component.html',
 })
-export class PortfolioComponent implements OnInit, OnDestroy{
+export class PortfolioComponent implements OnInit, OnDestroy {
 
     portfolios!: Portfolio[];
-
-    expandedRows: expandedRows = {};
-
-    isExpanded: boolean = false;
 
     subscription!: Subscription;
 
