@@ -5,7 +5,6 @@ import { PortfolioCreateComponent } from "./portfolio-create/portfolio-create.co
 import { PortfolioEditComponent } from "./portfolio-edit/portfolio-edit.component";
 import { PortfolioDeleteComponent } from "./portfolio-delete/portfolio-delete.component";
 import { PortfolioLineFormComponent } from "./form/portfolio-line-form.component";
-import { ConfirmationComponent } from "./form/confirmation.component";
 
 
 @NgModule({
@@ -21,13 +20,10 @@ export class PortfolioRoutingModule {
             {
                 path: '', component: PortfolioComponent, children: [
                     { path: '', redirectTo: 'personal', pathMatch: 'full' },
-                    { path: 'create', component: PortfolioCreateComponent },
-                    { path: 'delete', component: PortfolioDeleteComponent },
                     { path: 'add-portfolio-line', component: PortfolioLineFormComponent },
                     { path: 'add-portfolio', component: PortfolioCreateComponent },
                     { path: 'edit-portfolio', component: PortfolioEditComponent },
                     { path: 'delete-portfolio', component: PortfolioDeleteComponent },
-                    { path: 'confirmation', component: ConfirmationComponent },
                 ]
             }
         ];

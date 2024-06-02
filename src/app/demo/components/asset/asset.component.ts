@@ -16,6 +16,7 @@ export class AssetComponent implements OnInit, OnDestroy {
         this.routeItems = [
             { label: 'New', routerLink: 'add-asset' },
             { label: 'Edit', routerLink: 'edit-asset' },
+            { label: 'Delete', routerLink: 'delete-asset' },
         ];
     }
 
