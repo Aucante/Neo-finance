@@ -39,6 +39,12 @@ export class AppMenuComponent implements OnInit {
                 ],
             },
             {
+                label: 'Authentication',
+                items: [
+                    { label: 'Login', icon: 'pi pi-fw pi-home', routerLink: ['/auth/login'] },
+                ],
+            },
+            {
                 label: 'UI Components',
                 items: [
                     { label: 'Form Layout', icon: 'pi pi-fw pi-id-card', routerLink: ['/uikit/formlayout'] },
