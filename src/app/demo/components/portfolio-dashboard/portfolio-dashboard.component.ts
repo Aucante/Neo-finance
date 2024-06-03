@@ -8,6 +8,9 @@ import { ChartModule } from "primeng/chart";
 import { ChartHelper } from "../../helper/chart-helper";
 import { DividerModule } from "primeng/divider";
 import { ScrollPanelModule } from "primeng/scrollpanel";
+import { ButtonModule } from "primeng/button";
+import { DialogModule } from "primeng/dialog";
+import { InputTextModule } from "primeng/inputtext";
 
 @Component({
   selector: 'app-portfolio-dashboard',
@@ -22,7 +25,10 @@ import { ScrollPanelModule } from "primeng/scrollpanel";
         NgIf,
         DatePipe,
         DividerModule,
-        ScrollPanelModule
+        ScrollPanelModule,
+        ButtonModule,
+        DialogModule,
+        InputTextModule
     ],
   templateUrl: './portfolio-dashboard.component.html',
 })
@@ -37,6 +43,8 @@ export class PortfolioDashboardComponent implements OnInit, OnDestroy {
     barData: any;
 
     barOptions: any;
+
+    visible: boolean = false;
 
     constructor(
         private portfolioService: PortfolioService,
@@ -56,6 +64,10 @@ export class PortfolioDashboardComponent implements OnInit, OnDestroy {
         if (selectedPortfolio) {
             this.initCharts(selectedPortfolio);
         }
+    }
+
+    showDialog() {
+        this.visible = true;
     }
 
     initCharts(portfolio: Portfolio) {
