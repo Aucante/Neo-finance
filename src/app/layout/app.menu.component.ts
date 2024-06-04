@@ -36,6 +36,7 @@ export class AppMenuComponent implements OnInit {
                 items: [
                     { label: 'Portfolio Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio'] },
                     { label: 'Asset Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/asset/add-asset'] },
+                    { label: 'Transaction Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/transaction/add-transaction'] },
                 ],
             },
             {

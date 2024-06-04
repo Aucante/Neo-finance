@@ -13,6 +13,7 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
                     { path: 'homepage', loadChildren: () => import('./demo/components/homepage/homepage.module').then(m => m.HomepageModule) },
                     { path: 'portfolio', loadChildren: () => import('./demo/components/portfolio/portfolio.module').then(m => m.PortfolioModule) },
                     { path: 'asset', loadChildren: () => import('./demo/components/asset/asset.module').then(m => m.AssetModule) },
+                    { path: 'transaction', loadChildren: () => import('./demo/components/transaction/transaction.module').then(m => m.TransactionModule) },
                     { path: 'portfolio-dashboard', loadChildren: () => import('./demo/components/portfolio-dashboard/portfolio-dashboard.module').then(m => m.PortfolioDashboardModule) },
                     { path: 'settings', loadChildren: () => import('./demo/components/setting/setting.module').then(m => m.SettingModule) },
                     { path: 'uikit', loadChildren: () => import('./demo/components/uikit/uikit.module').then(m => m.UIkitModule) },
