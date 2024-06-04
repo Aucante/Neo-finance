@@ -7,6 +7,9 @@ import { DropdownModule } from "primeng/dropdown";
 import { InputTextModule } from "primeng/inputtext";
 import { PORTFOLIO_TYPES } from "../../constants/app.constants";
 import { FormsModule } from "@angular/forms";
+import { InputTextareaModule } from "primeng/inputtextarea";
+import { SelectButtonModule } from "primeng/selectbutton";
+import { CalendarModule } from "primeng/calendar";
 
 @Component({
     selector: 'app-transaction-create',
@@ -18,11 +21,18 @@ import { FormsModule } from "@angular/forms";
         ButtonModule,
         DropdownModule,
         InputTextModule,
-        FormsModule
+        FormsModule,
+        InputTextareaModule,
+        SelectButtonModule,
+        CalendarModule
     ],
     templateUrl: './transaction-create.component.html',
 })
 export class TransactionCreateComponent implements OnInit {
+
+    stateOptions: any[] = [{ label: 'Purchased', value: 'purchased' },{ label: 'Sold', value: 'sold' }];
+
+    date: Date | undefined;
 
     ngOnInit() {
     }
