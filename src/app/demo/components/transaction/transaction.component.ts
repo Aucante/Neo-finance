@@ -16,7 +16,6 @@ export class TransactionComponent implements OnInit, OnDestroy {
 
 
     constructor(
-        // private transactionService: TransactionService,
     ) { }
 
     ngOnInit() {
@@ -26,10 +25,6 @@ export class TransactionComponent implements OnInit, OnDestroy {
             { label: 'Edit', routerLink: 'edit-transaction' },
             { label: 'Delete', routerLink: 'delete-transaction' },
         ];
-
-        // this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
-        //     this.portfolios = portfolioList;
-        // });
 
     }
 

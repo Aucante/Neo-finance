@@ -18,9 +18,6 @@ export class TransactionRoutingModule {
                 path: '', component: TransactionComponent, children: [
                     { path: '', redirectTo: 'personal', pathMatch: 'full' },
                     { path: 'add-transaction', component: TransactionCreateComponent },
-                    // { path: 'add-transaction', component: transactionCreateComponent },
-                    // { path: 'edit-transaction', component: transactionEditComponent },
-                    // { path: 'delete-transaction', component: PortfolioDeleteComponent },
                 ]
             }
         ];
