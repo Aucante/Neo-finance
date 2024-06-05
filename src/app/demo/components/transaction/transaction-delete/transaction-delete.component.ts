@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Portfolio, PortfolioService } from "../../../service/portfolio.service";
 import { ButtonModule } from "primeng/button";
 import { DropdownModule } from "primeng/dropdown";
 import { InputTextModule } from "primeng/inputtext";
