@@ -3,16 +3,12 @@
         <div class="p-fluid">
 
             <div class="field">
-                <label htmlFor="email1">Transaction</label>
-                <!--                <p-dropdown-->
-                <!--                    [options]="portfolios"-->
-                <!--                    [(ngModel)]="selectedPortfolio"-->
-                <!--                    optionLabel="name"-->
-                <!--                    placeholder="Select a portfolio" />-->
-            </div>
-            <div class="field" *ngIf="selectedTransaction">
-                <label htmlFor="name1">New name</label>
-                <!--                <input pInputText id="name" type="text" [(ngModel)]="selectedPortfolio.name" />-->
+                <label htmlFor="transaction">Transaction</label>
+                <p-dropdown
+                    [options]="transactions"
+                    [(ngModel)]="selectedTransaction"
+                    optionLabel="id"
+                    placeholder="Select a portfolio" />
             </div>
             <div class="flex-container"
                  style="display: flex; flex-direction: column; align-items: center; padding-top: 2rem"

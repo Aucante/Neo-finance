@@ -8,5 +8,5 @@ export interface Transaction {
     date: Date;
     note?: string;
     is_purchased: boolean;
-    portfolioLine: PortfolioLine;
+    portfolioLine: number;
 }

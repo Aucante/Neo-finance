@@ -5,13 +5,19 @@ export const MOCK_PORTFOLIO_LINES: PortfolioLine[] = [
     {
         id: 1,
         quantity: 10,
-        value: 1.50,
         asset: MOCK_ASSET_BTC,
     },
     {
         id: 2,
         quantity: 1,
-        value: 400,
         asset: MOCK_ASSET_XRP,
     },
 ];
+
+export const MOCK_PORTFOLIO_LINE_1: PortfolioLine =
+    {
+        id: 1,
+        quantity: 10,
+        asset: MOCK_ASSET_BTC,
+    }
+;

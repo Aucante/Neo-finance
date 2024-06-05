@@ -5,6 +5,7 @@ import { InputTextModule } from "primeng/inputtext";
 import { FormsModule } from "@angular/forms";
 import { NgIf } from "@angular/common";
 import { Transaction } from "../../../api/transaction";
+import { TransactionService } from "../../../service/transaction.service";
 
 @Component({
     selector: 'app-transaction-edit',
@@ -24,7 +25,14 @@ export class TransactionEditComponent implements OnInit {
 
     selectedTransaction: Transaction | undefined;
 
+    constructor(
+        private transactionService: TransactionService
+    ) { }
+
     ngOnInit() {
+        this.transactionService.getAllTransactionsByPortfolio().subscribe(transactionList => {
+            this.transactions = transactionList;
+        })
     }
 
 }
