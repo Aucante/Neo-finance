@@ -6,8 +6,7 @@ import { Transaction } from "../api/transaction";
 @Injectable()
 export class TransactionService {
 
-    constructor(private httpClient: HttpClient) {
-    }
+    constructor(private httpClient: HttpClient) { }
 
     getAllTransactionsByPortfolio(): Observable<Transaction[]> {
         return this.httpClient.get<Transaction[]>('api/transactions')
