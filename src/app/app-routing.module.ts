@@ -16,7 +16,6 @@ import { AppLayoutComponent } from "./layout/app.layout.component";
                     { path: 'transaction', loadChildren: () => import('./demo/components/transaction/transaction.module').then(m => m.TransactionModule) },
                     { path: 'portfolio-dashboard', loadChildren: () => import('./demo/components/portfolio-dashboard/portfolio-dashboard.module').then(m => m.PortfolioDashboardModule) },
                     { path: 'settings', loadChildren: () => import('./demo/components/setting/setting.module').then(m => m.SettingModule) },
-                    { path: 'utilities', loadChildren: () => import('./demo/components/utilities/utilities.module').then(m => m.UtilitiesModule) },
                     { path: 'documentation', loadChildren: () => import('./demo/components/documentation/documentation.module').then(m => m.DocumentationModule) },
                     { path: 'pages', loadChildren: () => import('./demo/components/pages/pages.module').then(m => m.PagesModule) }
                 ]
