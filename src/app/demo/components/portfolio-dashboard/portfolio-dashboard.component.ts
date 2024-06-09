@@ -82,9 +82,5 @@ export class PortfolioDashboardComponent implements OnInit, OnDestroy {
         this.barData = barChartResults[1];
     }
 
-    getIconByPortfolio(type: string): string {
-        return IconHelper.getIcon(type);
-    }
-
     ngOnDestroy() { }
 }

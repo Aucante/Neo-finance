@@ -3,7 +3,6 @@
         <ng-container *ngFor="let portfolio of portfolios">
             <p-tabPanel>
                 <ng-template pTemplate="header">
-                    <i [class]="getIconByPortfolio(portfolio.type)"></i>
                     <span>&nbsp; {{ portfolio.name }}</span>
                 </ng-template>
 
@@ -16,7 +15,7 @@
                     </div>
                     <div class="col-12 lg:col-6">
                         <div class="card">
-                            <h5>Bar Chart</h5>
+                            <h5 class="uppercase">Financial results</h5>
                             <p-chart type="bar" [data]="barData" [options]="barOptions"></p-chart>
                         </div>
                     </div>

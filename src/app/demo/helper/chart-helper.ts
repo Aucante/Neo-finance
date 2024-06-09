@@ -75,9 +75,7 @@ export class ChartHelper {
         const barOptions = {
             plugins: {
                 legend: {
-                    labels: {
-                        fontColor: textColor
-                    }
+                    display: false,
                 }
             },
             scales: {
