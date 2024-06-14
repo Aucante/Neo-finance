@@ -59,7 +59,6 @@ export class ChartHelper {
     static initBarChart(): [chartOptions: any, chartData: any] {
         const documentStyle = getComputedStyle(document.documentElement);
         const textColor = documentStyle.getPropertyValue('--text-color');
-
         const barData = {
             labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
             datasets: [
