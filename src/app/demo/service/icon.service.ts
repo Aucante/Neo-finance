@@ -9,7 +9,7 @@ export class IconService {
 
     icons!: any[];
 
-    apiUrl = 'assets/demo/data/icons.json';
+    apiUrl: string = 'assets/demo/data/icons.json';
 
     getIcons() {
         return this.http.get(this.apiUrl).pipe(map((response: any) => {

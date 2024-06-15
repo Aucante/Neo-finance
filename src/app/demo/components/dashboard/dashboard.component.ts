@@ -4,7 +4,7 @@ import { ChartHelper } from "../../helper/chart-helper";
 import {
     AssetApiService,
     MARKET_USD,
-    REQUEST_DIGITAL_CURRENCY_DAILY, REQUEST_DIGITAL_CURRENCY_MONTHLY,
+    REQUEST_DIGITAL_CURRENCY_DAILY,
     RESPONSE_DATA_KEY, RESPONSE_VALUES_KEY
 } from "../../service/api/asset-api.service";
 import { Asset } from "../../api/asset";
