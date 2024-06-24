@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LayoutService } from './service/app.layout.service';
-import { PortfolioService } from "../demo/service/portfolio.service";
-import { IconHelper } from "../demo/helper/icon-helper";
 
 @Component({
     selector: 'app-menu',
@@ -32,9 +30,10 @@ export class AppMenuComponent implements OnInit {
             {
                 label: 'Control Panel',
                 items: [
-                    { label: 'Portfolio Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio'] },
-                    { label: 'Asset Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/asset/add-asset'] },
-                    { label: 'Transaction Management Center', icon: 'pi pi-fw pi-home', routerLink: ['/transaction/add-transaction'] },
+                    { label: 'Portfolio Management', icon: 'pi pi-fw pi-home', routerLink: ['/portfolio/add-portfolio'] },
+                    { label: 'Asset Management', icon: 'pi pi-fw pi-home', routerLink: ['/asset/add-asset'] },
+                    { label: 'Transaction Management', icon: 'pi pi-fw pi-home', routerLink: ['/transaction/add-transaction'] },
+                    { label: 'Income Management', icon: 'pi pi-fw pi-home', routerLink: ['/income/add-income'] },
                 ],
             },
             {
