@@ -31,8 +31,7 @@ import { ReturnCreateComponent } from "../../return/return-create/return-create.
 })
 export class IncomeCreateComponent implements OnInit {
 
-    monMessage = "Income";
+    monMessage: string = "Income";
 
-    ngOnInit() {
-    }
+    ngOnInit() { }
 }

@@ -29,7 +29,7 @@ import { CalendarModule } from "primeng/calendar";
 })
 export class ReturnCreateComponent implements OnInit {
 
-    @Input() message = '';
+    @Input() message: string = '';
 
     ngOnInit() {
     }
