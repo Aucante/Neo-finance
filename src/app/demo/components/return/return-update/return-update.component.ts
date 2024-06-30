@@ -31,6 +31,8 @@ export class ReturnUpdateComponent implements OnInit {
 
     @Input() message: string = '';
 
+    stateOptions: any[] = [{ label: 'Income', value: 'income' },{ label: 'Outcome', value: 'outcome' }];
+
     ngOnInit() {
     }
 }

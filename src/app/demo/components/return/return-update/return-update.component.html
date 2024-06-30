@@ -22,8 +22,11 @@
                 <input pInputText id="description" type="text" />
             </div>
             <div class="field">
-                <label htmlFor="isIncome">Is income</label>
-                <input pInputText id="isIncome" type="text" />
+                <label htmlFor="isIncome">Return type</label>
+                <p-selectButton
+                    [options]="stateOptions"
+                    optionLabel="label"
+                    optionValue="value" />
             </div>
 
             <h3 class="uppercase">{{ message }}</h3>
