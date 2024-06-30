@@ -9,6 +9,7 @@ import { FormsModule } from "@angular/forms";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { CalendarModule } from "primeng/calendar";
+import { Return } from "../../../api/return";
 
 @Component({
     selector: 'app-return-delete',
@@ -31,6 +32,11 @@ export class ReturnDeleteComponent implements OnInit {
 
     @Input() message: string = '';
 
+    returns: Return[];
+
+    selectedReturn: Return | undefined;
+
     ngOnInit() {
+        this.returns = [];
     }
 }
