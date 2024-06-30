@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { IncomeComponent } from "./income.component";
 import { IncomeCreateComponent } from "./income-create/income-create.component";
 import { IncomeUpdateComponent } from "./income-update/income-update.component";
+import { IncomeDeleteComponent } from "./income-delete/income-delete.component";
 
 
 @NgModule({
@@ -20,7 +21,7 @@ export class IncomeRoutingModule {
                     { path: '', redirectTo: 'personal', pathMatch: 'full' },
                     { path: 'add-income', component: IncomeCreateComponent },
                     { path: 'edit-income', component: IncomeUpdateComponent },
-                    // { path: 'delete-transaction', component: TransactionDeleteComponent },
+                    { path: 'delete-income', component: IncomeDeleteComponent },
                 ]
             }
         ];

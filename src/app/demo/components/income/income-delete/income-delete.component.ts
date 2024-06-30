@@ -9,10 +9,10 @@ import { FormsModule } from "@angular/forms";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { CalendarModule } from "primeng/calendar";
-import { ReturnCreateComponent } from "../../return/return-create/return-create.component";
+import { ReturnDeleteComponent } from "../../return/income-delete/return-delete.component";
 
 @Component({
-    selector: 'app-income-create',
+    selector: 'app-income-delete',
     standalone: true,
     imports: [
         RouterOutlet,
@@ -25,13 +25,13 @@ import { ReturnCreateComponent } from "../../return/return-create/return-create.
         InputTextareaModule,
         SelectButtonModule,
         CalendarModule,
-        ReturnCreateComponent
+        ReturnDeleteComponent
     ],
-    templateUrl: './income-create.component.html',
+    templateUrl: './income-delete.component.html',
 })
-export class IncomeCreateComponent implements OnInit {
+export class IncomeDeleteComponent implements OnInit {
 
-    monMessage: string = "Income create";
+    message: string = "Income delete";
 
     ngOnInit() { }
 }

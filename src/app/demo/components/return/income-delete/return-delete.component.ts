@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet } from "@angular/router";
 import { StepsModule } from "primeng/steps";
 import { TabMenuModule } from "primeng/tabmenu";
@@ -9,10 +9,9 @@ import { FormsModule } from "@angular/forms";
 import { InputTextareaModule } from "primeng/inputtextarea";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { CalendarModule } from "primeng/calendar";
-import { ReturnCreateComponent } from "../../return/return-create/return-create.component";
 
 @Component({
-    selector: 'app-income-create',
+    selector: 'app-return-delete',
     standalone: true,
     imports: [
         RouterOutlet,
@@ -24,14 +23,14 @@ import { ReturnCreateComponent } from "../../return/return-create/return-create.
         FormsModule,
         InputTextareaModule,
         SelectButtonModule,
-        CalendarModule,
-        ReturnCreateComponent
+        CalendarModule
     ],
-    templateUrl: './income-create.component.html',
+    templateUrl: './return-delete.component.html',
 })
-export class IncomeCreateComponent implements OnInit {
+export class ReturnDeleteComponent implements OnInit {
 
-    monMessage: string = "Income create";
+    @Input() message: string = '';
 
-    ngOnInit() { }
+    ngOnInit() {
+    }
 }
