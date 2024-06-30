@@ -2,16 +2,16 @@
     <div class="col-12 md:col-6 ml-auto mr-auto">
         <div class="p-fluid">
             <div class="field">
-                <label htmlFor="email1">Income</label>
+                <label htmlFor="email1">Return</label>
                 <p-dropdown
                     [options]="returns"
                     [(ngModel)]="selectedReturn"
-                    optionLabel="name"
+                    optionLabel="type"
                     placeholder="Select an income" />
             </div>
             <div class="field" *ngIf="selectedReturn">
-                <label htmlFor="name">New name</label>
-                <input pInputText id="name" type="text" [(ngModel)]="selectedReturn.name" />
+                <label htmlFor="type">New name</label>
+                <input pInputText id="type" type="text" [(ngModel)]="selectedReturn.type" />
             </div>
 
             <h3 class="uppercase">{{ message }}</h3>

@@ -10,6 +10,9 @@ import { InputTextareaModule } from "primeng/inputtextarea";
 import { SelectButtonModule } from "primeng/selectbutton";
 import { CalendarModule } from "primeng/calendar";
 import { Return } from "../../../api/return";
+import { AssetService } from "../../../service/asset.service";
+import { ReturnService } from "../../../service/return.service";
+import { NgIf } from "@angular/common";
 
 @Component({
     selector: 'app-return-delete',
@@ -24,7 +27,8 @@ import { Return } from "../../../api/return";
         FormsModule,
         InputTextareaModule,
         SelectButtonModule,
-        CalendarModule
+        CalendarModule,
+        NgIf
     ],
     templateUrl: './return-delete.component.html',
 })
@@ -36,7 +40,13 @@ export class ReturnDeleteComponent implements OnInit {
 
     selectedReturn: Return | undefined;
 
+    constructor(
+        private returnService: ReturnService
+    ) { }
+
     ngOnInit() {
-        this.returns = [];
+        this.returnService.getIncomes().subscribe(returnList => {
+            this.returns = returnList;
+        });
     }
 }

@@ -16,6 +16,7 @@ import { AssetService } from "./demo/service/asset.service";
 import { PortfolioService } from "./demo/service/portfolio.service";
 import { FinancialResultService } from "./demo/service/financial-result.service";
 import { TransactionService } from "./demo/service/transaction.service";
+import { ReturnService } from "./demo/service/return.service";
 
 @NgModule({
     declarations: [AppComponent, NotfoundComponent],
@@ -30,6 +31,7 @@ import { TransactionService } from "./demo/service/transaction.service";
         PhotoService,
         ProductService,
         AssetService,
+        ReturnService,
         PortfolioService,
         FinancialResultService,
         TransactionService
