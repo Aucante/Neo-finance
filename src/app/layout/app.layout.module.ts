@@ -35,7 +35,7 @@ import { InMemoryDataService } from "../demo/service/api/in-memory-data.service"
         BrowserModule,
         FormsModule,
         HttpClientModule,
-        HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
+        // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService),
         BrowserAnimationsModule,
         InputTextModule,
         SidebarModule,

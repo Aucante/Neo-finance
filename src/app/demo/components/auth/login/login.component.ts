@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
+import { AuthenticationService, LoginResponse } from "../../../service/api/authentication.service";
 
 @Component({
     selector: 'app-login',
@@ -17,7 +18,23 @@ export class LoginComponent {
 
     valCheck: string[] = ['remember'];
 
+    email!: string;
+
     password!: string;
 
-    constructor(public layoutService: LayoutService) { }
+    formData = {
+        email: '',
+        password: ''
+    };
+
+    constructor(
+        public layoutService: LayoutService,
+        private authenticationService: AuthenticationService
+    ) { }
+
+    onSubmit() {
+        this.authenticationService.login(this.formData).subscribe((value: LoginResponse ) => {
+            console.log(value)
+        });
+    }
 }

@@ -17,10 +17,18 @@ import { PortfolioService } from "./demo/service/portfolio.service";
 import { FinancialResultService } from "./demo/service/financial-result.service";
 import { TransactionService } from "./demo/service/transaction.service";
 import { ReturnService } from "./demo/service/return.service";
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
-    declarations: [AppComponent, NotfoundComponent],
-    imports: [AppRoutingModule, AppLayoutModule],
+    declarations: [
+        AppComponent,
+        NotfoundComponent
+    ],
+    imports: [
+        AppRoutingModule,
+        AppLayoutModule,
+        FormsModule
+    ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
         CountryService,
