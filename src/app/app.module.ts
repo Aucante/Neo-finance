@@ -18,6 +18,8 @@ import { FinancialResultService } from "./demo/service/financial-result.service"
 import { TransactionService } from "./demo/service/transaction.service";
 import { ReturnService } from "./demo/service/return.service";
 import { FormsModule } from "@angular/forms";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { AuthInterceptor } from "./demo/service/api/auth.interceptor";
 
 @NgModule({
     declarations: [
@@ -27,10 +29,12 @@ import { FormsModule } from "@angular/forms";
     imports: [
         AppRoutingModule,
         AppLayoutModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     providers: [
         { provide: LocationStrategy, useClass: PathLocationStrategy },
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
         CountryService,
         CustomerService,
         EventService,
