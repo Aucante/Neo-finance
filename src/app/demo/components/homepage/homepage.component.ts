@@ -46,12 +46,11 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.chartData = chartResults[1];
 
         this.assetService.getAssets().subscribe(assetList => {
-            console.log(assetList)
             this.assets = assetList;
-            console.log(this.assets)
         });
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
             this.portfolios = portfolioList;
+            console.log(this.portfolios)
             const pieChartLabels = this.portfolios.map(portfolio => portfolio.type);
             const pieChartDatas = this.portfolios.map(portfolio => portfolio.value);
             const pieChartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initPieChart(pieChartLabels, pieChartDatas);

@@ -3,7 +3,8 @@ import { FinancialResult } from "./financial-result.service";
 import { MOCK_PORTFOLIO_1, MOCK_PORTFOLIO_2, MOCK_PORTFOLIO_3, MOCK_PORTFOLIOS } from "./mock/portfolio-mock";
 import { Asset } from "../api/asset";
 import { catchError, Observable, of, tap } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 export interface PortfolioLine {
     id: number;
@@ -36,6 +37,18 @@ export class PortfolioService {
                     return of([]);
                 })
             )
+    }
+
+    getAllPortfolios(): Observable<Portfolio[]> {
+
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+        });
+
+        return this.httpClient.get<any[]>(
+            `${environment.apiBaseUrl}portfolios`,
+            { headers }
+        )
     }
 
     getPortfolio1(): Portfolio {
