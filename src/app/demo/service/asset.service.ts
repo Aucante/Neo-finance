@@ -15,19 +15,9 @@ export class AssetService {
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         });
 
-        const url = `${environment.apiBaseUrl}assets`;
-
         return this.httpClient.get<any[]>(
-            url,
+            `${environment.apiBaseUrl}assets`,
             { headers }
-        ).pipe(
-            tap((response) =>
-                console.table(response)
-            ),
-            catchError((error) => {
-                console.log(error)
-                return of([]);
-            })
         )
     }
 }

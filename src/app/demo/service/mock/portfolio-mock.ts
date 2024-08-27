@@ -24,7 +24,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Bitcoin",
                     "abbreviation": "BTC",
                     "color": "cyan",
-                    "lastValue": 68000,
+                    "value": 68000,
                 }
             },
             {
@@ -35,7 +35,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Ethereum",
                     "abbreviation": "ETH",
                     "color": "orange",
-                    "lastValue": 3500
+                    "value": 3500
                 }
             },
             {
@@ -46,7 +46,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Cardano",
                     "abbreviation": "ADA",
                     "color": "green",
-                    "lastValue": 1
+                    "value": 1
                 }
             },
             {
@@ -57,7 +57,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Polkadot",
                     "abbreviation": "DOT",
                     "color": "cyan",
-                    "lastValue": 8
+                    "value": 8
                 }
             }
         ],
@@ -80,7 +80,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Apple Inc.",
                     "abbreviation": "AAPL",
                     "color": "green",
-                    "lastValue": 150
+                    "value": 150
                 }
             },
             {
@@ -91,7 +91,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Microsoft Corporation",
                     "abbreviation": "MSFT",
                     "color": "blue",
-                    "lastValue": 200
+                    "value": 200
                 }
             }
         ],
@@ -114,7 +114,7 @@ export const MOCK_PORTFOLIOS: Portfolio[] = [
                     "name": "Real Estate - Nice",
                     "abbreviation": "RE",
                     "color": "green",
-                    "lastValue": 100000
+                    "value": 100000
                 }
             }
         ],
@@ -139,7 +139,7 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
                 "name": "Bitcoin",
                 "abbreviation": "BTC",
                 "color": "cyan",
-                "lastValue": 68000,
+                "value": 68000,
             }
         },
         {
@@ -150,7 +150,7 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
                 "name": "Ethereum",
                 "abbreviation": "ETH",
                 "color": "orange",
-                "lastValue": 3500
+                "value": 3500
             }
         },
         {
@@ -161,7 +161,7 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
                 "name": "Cardano",
                 "abbreviation": "ADA",
                 "color": "green",
-                "lastValue": 1
+                "value": 1
             }
         },
         {
@@ -172,7 +172,7 @@ export const MOCK_PORTFOLIO_1: Portfolio = {
                 "name": "Polkadot",
                 "abbreviation": "DOT",
                 "color": "cyan",
-                "lastValue": 8
+                "value": 8
             }
         }
     ],
@@ -196,7 +196,7 @@ export const MOCK_PORTFOLIO_2: Portfolio = {
                 "name": "Apple Inc.",
                 "abbreviation": "AAPL",
                 "color": "green",
-                "lastValue": 150
+                "value": 150
             }
         },
         {
@@ -207,7 +207,7 @@ export const MOCK_PORTFOLIO_2: Portfolio = {
                 "name": "Microsoft Corporation",
                 "abbreviation": "MSFT",
                 "color": "blue",
-                "lastValue": 200
+                "value": 200
             }
         }
     ],
@@ -231,7 +231,7 @@ export const MOCK_PORTFOLIO_3: Portfolio = {
                 "name": "Real Estate - Nice",
                 "abbreviation": "RE",
                 "color": "green",
-                "lastValue": 100000
+                "value": 100000
             }
         }
     ],

@@ -74,7 +74,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     handleAssetDatas(responseAsset: responseAssetApiData[]): void {
-        this.assetSelected.lastValue = parseFloat(responseAsset[responseAsset.length - 1].openValue);
+        this.assetSelected.value = parseFloat(responseAsset[responseAsset.length - 1].openValue);
         this.setChartDataOption(responseAsset);
         this.assetDataCache.set(this.assetSelected.abbreviation, responseAsset);
     }

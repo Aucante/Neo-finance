@@ -40,7 +40,7 @@
                                     <tr>
                                         <td class="text-left"><img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" [alt]="portfolio.name" height="25" width="25" style="border-radius: 50%" class="shadow-4" /></td>
                                         <td class="text-center">{{portfolioLine.asset.name}}</td>
-                                        <td class="text-center">{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
+                                        <td class="text-center">{{portfolioLine.asset.value | currency:'USD'}}</td>
                                         <td class="text-center">{{portfolioLine.quantity}}</td>
                                         <td class="text-center">{{portfolio.value | currency:'USD'}}</td>
                                         <td class="text-center">

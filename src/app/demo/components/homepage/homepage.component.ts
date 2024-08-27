@@ -48,6 +48,7 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.assetService.getAssets().subscribe(assetList => {
             console.log(assetList)
             this.assets = assetList;
+            console.log(this.assets)
         });
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
             this.portfolios = portfolioList;

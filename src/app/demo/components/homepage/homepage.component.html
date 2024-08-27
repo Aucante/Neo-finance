@@ -25,7 +25,7 @@
                             <div class="mt-1 text-600">{{ asset.abbreviation }}</div>
                         </div>
                         <div class="mt-2 md:mt-0 ml-0 md:ml-8 flex align-items-center">
-                            <span [ngClass]="asset.color" class="ml-3 font-medium">{{ asset.lastValue }} $</span>
+                            <span [ngClass]="asset.color" class="ml-3 font-medium">{{ asset.value }} $</span>
                         </div>
                     </li>
                 </ng-container>
@@ -54,7 +54,7 @@
                         <td style="width: 15%; min-width: 5rem;">
                             <img src="assets/demo/images/asset/{{portfolioLine.asset.abbreviation | lowercase}}.png" class="shadow-4" alt="{{portfolioLine.asset.abbreviation}}" height="25" width="25" style="border-radius: 50%">
                         </td>
-                        <td style="width: 35%; min-width: 8rem;">{{portfolioLine.asset.lastValue | currency:'USD'}}</td>
+                        <td style="width: 35%; min-width: 8rem;">{{portfolioLine.asset.value | currency:'USD'}}</td>
                     </tr>
                     <tr *ngIf="portfolio.portfolioLines.length < 2 && i !== 2">
                         <td style="width: 15%; min-width: 5rem; opacity: 0;">

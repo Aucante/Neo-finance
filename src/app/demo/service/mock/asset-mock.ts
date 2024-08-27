@@ -5,7 +5,7 @@ export const MOCK_ASSET_BTC: Asset = {
     name: 'Bitcoin',
     abbreviation: 'BTC',
     color: 'cyan',
-    lastValue: 68000
+    value: 68000
 }
 
 export const MOCK_ASSET_ETH: Asset = {
@@ -13,7 +13,7 @@ export const MOCK_ASSET_ETH: Asset = {
     name: 'Ethereum',
     abbreviation: 'ETH',
     color: 'orange',
-    lastValue: 3500,
+    value: 3500,
 }
 
 export const MOCK_ASSET_XRP: Asset = {
@@ -21,7 +21,7 @@ export const MOCK_ASSET_XRP: Asset = {
     name: 'Ripple',
     abbreviation: 'XRP',
     color: 'cyan',
-    lastValue: 0.6,
+    value: 0.6,
 }
 
 export const MOCK_ASSET_ADA: Asset = {
@@ -29,7 +29,7 @@ export const MOCK_ASSET_ADA: Asset = {
     name: 'Cardano',
     abbreviation: 'ADA',
     color: 'orange',
-    lastValue: 0.7,
+    value: 0.7,
 }
 
 export const MOCK_ASSET_LTC: Asset = {
@@ -37,7 +37,7 @@ export const MOCK_ASSET_LTC: Asset = {
     name: 'Litecoin',
     abbreviation: 'LTC',
     color: 'cyan',
-    lastValue: 120
+    value: 120
 }
 
 export const MOCK_ASSET_SOL: Asset = {
@@ -45,7 +45,7 @@ export const MOCK_ASSET_SOL: Asset = {
     name: 'Solana',
     abbreviation: 'SOL',
     color: 'orange',
-    lastValue: 180,
+    value: 180,
 }
 
 export const MOCK_ASSETS: Asset[] = [

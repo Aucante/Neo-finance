@@ -3,5 +3,5 @@ export interface Asset {
     name: string;
     abbreviation: string;
     color: string;
-    lastValue: number;
+    value: number;
 }

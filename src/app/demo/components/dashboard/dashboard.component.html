@@ -71,7 +71,7 @@
                           class="mr-3">
                 </p-button>
             </div>
-            <h5>{{assetSelected?.name}} - {{assetSelected?.lastValue | currency:'USD'}}</h5>
+            <h5>{{assetSelected?.name}} - {{assetSelected?.value | currency:'USD'}}</h5>
             <br>
             <p-chart type="line" [data]="chartData" [options]="chartOptions"></p-chart>
         </div>
