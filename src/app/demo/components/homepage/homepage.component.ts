@@ -5,7 +5,7 @@ import { AssetService } from "../../service/asset.service";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { FinancialResult, FinancialResultService } from "../../service/financial-result.service";
 import { ChartHelper } from "../../helper/chart-helper";
-import { UserService } from "../../service/user.service";
+import { UserPortfolioDetails, UserService } from "../../service/user.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -15,6 +15,8 @@ export class HomepageComponent implements OnInit, OnDestroy{
     assets!: Asset[];
 
     portfolios: Portfolio[] = [];
+
+    userPortfolioDetails: UserPortfolioDetails;
 
     financialResults!: FinancialResult[];
 
@@ -50,6 +52,12 @@ export class HomepageComponent implements OnInit, OnDestroy{
         this.assetService.getAssets().subscribe(assetList => {
             this.assets = assetList;
         });
+
+        this.userService.getUserFullPortfoliosDetails().subscribe(userPortfolioDetails => {
+            this.userPortfolioDetails = userPortfolioDetails;
+            console.table(this.userPortfolioDetails)
+        })
+
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
             this.portfolios = portfolioList;
             const pieChartLabels = this.portfolios.map(portfolio => portfolio.type);

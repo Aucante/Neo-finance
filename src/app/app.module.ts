@@ -20,6 +20,7 @@ import { ReturnService } from "./demo/service/return.service";
 import { FormsModule } from "@angular/forms";
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { AuthInterceptor } from "./demo/service/api/auth.interceptor";
+import { UserService } from "./demo/service/user.service";
 
 @NgModule({
     declarations: [
@@ -43,6 +44,7 @@ import { AuthInterceptor } from "./demo/service/api/auth.interceptor";
         PhotoService,
         ProductService,
         AssetService,
+        UserService,
         ReturnService,
         PortfolioService,
         FinancialResultService,

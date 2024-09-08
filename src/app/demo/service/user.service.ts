@@ -1,10 +1,9 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Asset } from "../api/asset";
 import { environment } from "../../../environments/environment";
 
-export interface UserPortfolioDetailsDto {
+export interface UserPortfolioDetails {
     userEmail: string;
     portfoliosDetails:PortfoliosDetails;
 }
@@ -34,14 +33,14 @@ export class UserService {
 
     constructor(private httpClient: HttpClient) { }
 
-    getUserFullPortfoliosDetails(): Observable<Asset[]> {
+    getUserFullPortfoliosDetails(): Observable<UserPortfolioDetails> {
 
         const headers = new HttpHeaders({
             'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         });
 
-        return this.httpClient.get<any[]>(
-            `${environment.apiBaseUrl}assets`,
+        return this.httpClient.get<any>(
+            `${environment.apiBaseUrl}users/1/full-portfolio-details`,
             { headers }
         )
     }
