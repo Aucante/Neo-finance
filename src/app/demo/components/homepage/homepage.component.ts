@@ -5,6 +5,7 @@ import { AssetService } from "../../service/asset.service";
 import { Portfolio, PortfolioService } from "../../service/portfolio.service";
 import { FinancialResult, FinancialResultService } from "../../service/financial-result.service";
 import { ChartHelper } from "../../helper/chart-helper";
+import { UserService } from "../../service/user.service";
 
 @Component({
     templateUrl: './homepage.component.html'
@@ -32,7 +33,8 @@ export class HomepageComponent implements OnInit, OnDestroy{
     constructor(
         private assetService: AssetService,
         private portfolioService: PortfolioService,
-        private financialResultService: FinancialResultService
+        private financialResultService: FinancialResultService,
+        private userService: UserService,
     ) { }
 
     ngOnInit() {
@@ -50,7 +52,6 @@ export class HomepageComponent implements OnInit, OnDestroy{
         });
         this.portfolioService.getAllPortfoliosByUser().subscribe(portfolioList => {
             this.portfolios = portfolioList;
-            console.log(this.portfolios)
             const pieChartLabels = this.portfolios.map(portfolio => portfolio.type);
             const pieChartDatas = this.portfolios.map(portfolio => portfolio.value);
             const pieChartResults: [ChartOptions: any, ChartData: any] = ChartHelper.initPieChart(pieChartLabels, pieChartDatas);
